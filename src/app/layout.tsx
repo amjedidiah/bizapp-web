@@ -1,12 +1,12 @@
 import { inter } from "@/lib/fonts";
 import "@/globals.css";
 import { PropsWithChildren } from "react";
+import { Metadata } from "next";
 
-// TODO
-// export const metadata: Metadata = {
-//   title: "",
-//   description: "",
-// };
+export const metadata: Metadata = {
+  title: "Bizapp Live Chat",
+  description: "Help us serve you better",
+};
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
