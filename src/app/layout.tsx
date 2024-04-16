@@ -1,4 +1,4 @@
-import { inter } from "@/lib/fonts";
+import { manrope, mansalva } from "@/lib/fonts";
 import "@/globals.css";
 import { PropsWithChildren } from "react";
 import { Metadata } from "next";
@@ -10,9 +10,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
-    <html lang="en" className={`${inter.variable} font-inter`}>
+    <html
+      lang="en"
+      className={`${manrope.variable} ${mansalva.variable} font-manrope`}
+    >
       <body>
-        <main>{children}</main>
+        <div className="w-full h-full overflow-hidden flex">{children}</div>
       </body>
     </html>
   );

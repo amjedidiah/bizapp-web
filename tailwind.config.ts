@@ -8,7 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ["var(--font-inter)"],
+        manrope: ["var(--font-manrope)"],
+        mansalva: ["var(--font-mansalva)"],
+      },
+      colors: {
+        "main-blue": "#161827",
+        red: {
+          DEFAULT: "#FF4840",
+        },
+        slate: {
+          100: "#FCFCFC",
+        },
+        gray: {
+          DEFAULT: "#6F7782",
+        },
       },
     },
   },

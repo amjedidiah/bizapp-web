@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 export default function Home() {
-  return <Fragment>Welcome home</Fragment>;
+  return <h1>Hello world</h1>;
 }

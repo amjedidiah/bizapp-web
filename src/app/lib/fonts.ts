@@ -1,7 +1,14 @@
-import { Inter } from "next/font/google";
+import { Manrope, Mansalva } from "next/font/google";
 
-export const inter = Inter({
+export const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-manrope",
+});
+
+export const mansalva = Mansalva({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mansalva",
+  weight: ["400"],
 });
