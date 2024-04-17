@@ -21,6 +21,20 @@ const config: Config = {
         },
         gray: {
           DEFAULT: "#6F7782",
+          100: "#B3B3B3",
+          200: "#F7F7F7",
+          900: "#101828",
+        },
+        green: {
+          DEFAULT: "#4CA90C",
+        },
+        yellow: {
+          DEFAULT: "#FCE28C",
+          100: "#EBB22F",
+        },
+        black: {
+          DEFAULT: "#000000",
+          100: "#4C4C4C",
         },
       },
     },

@@ -222,3 +222,60 @@ export const BALogout = () => (
     />
   </svg>
 );
+
+export const BAStatusCircle = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="13"
+    height="13"
+    viewBox="0 0 13 13"
+    fill="none"
+  >
+    <circle cx="6.5" cy="6.5" r="6.5" fill="#4CA90C" />
+  </svg>
+);
+
+export const BAStatusCaret = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="25"
+    viewBox="0 0 24 25"
+    fill="none"
+  >
+    <rect
+      y="0.5"
+      width="24"
+      height="24"
+      rx="12"
+      fill="#68BF50"
+      fillOpacity="0.3"
+    />
+    <rect
+      x="0.5"
+      y="1"
+      width="23"
+      height="23"
+      rx="11.5"
+      fill="#7A7A7A"
+      fillOpacity="0.5"
+      stroke="#4CA90C"
+    />
+    <path d="M6 10.5L12 16.5L18 10.5H6Z" fill="white" />
+  </svg>
+);
+
+export const BABackArrow = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+  >
+    <path
+      d="M31 18.6111V21.3889H14.3333L21.9722 29.0278L20 31L9 20L20 9L21.9722 10.9722L14.3333 18.6111H31Z"
+      fill="black"
+    />
+  </svg>
+);

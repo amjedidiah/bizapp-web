@@ -1,5 +1,4 @@
-"use client";
-
+import { useNavbarContext } from "@/context/navbar.context";
 import {
   BAChat,
   BACustomers,
@@ -39,6 +38,7 @@ function NavbarListItem({ name, pathname }: NavItem) {
   );
   const isOutlier =
     Icon === BADashboard || Icon === BASettings || Icon === BALogout;
+  const { isCollapsed } = useNavbarContext();
 
   return (
     <li
@@ -55,15 +55,21 @@ function NavbarListItem({ name, pathname }: NavItem) {
         "[&_path]:stroke-red": isLogout,
       })}
     >
-      <Link href={pathname} className="py-2 pl-4 pr-6 flex gap-3 items-center">
+      <Link
+        href={pathname}
+        className={cn("py-2 pl-4 pr-6 flex gap-3 items-center", {
+          "max-lg:flex-col max-lg:p-2 max-lg:gap-2": isCollapsed,
+        })}
+      >
         <span>
           <Icon />
         </span>
         <span
-          className={cn("text-sm lg:leading-6 capitalize", {
+          className={cn("text-sm lg:leading-6 capitalize max-lg:font-bold", {
             "text-white": !isActive,
             "text-main-blue font-medium": isActive,
             "text-red": isLogout,
+            "max-lg:text-xs max-lg:uppercase max-[576px]:hidden": isCollapsed,
           })}
         >
           {name}

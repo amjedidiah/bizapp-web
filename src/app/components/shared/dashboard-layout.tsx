@@ -1,15 +1,18 @@
 import Navbar from "@/components/shared/navbar/navbar";
 import { Fragment, PropsWithChildren } from "react";
 import { NavItem } from "@/components/shared/navbar/navbar-list-item";
+import NavbarProvider from "@/context/navbar.context";
+import DashboardMain from "@/components/shared/dashboard-main";
 
 export default function DashboardLayout({
-  children,
   navList,
 }: PropsWithChildren<{ navList: NavItem[] }>) {
   return (
     <Fragment>
-      <Navbar navList={navList} />
-      <main className="flex-1">{children}</main>
+      <NavbarProvider>
+        <Navbar navList={navList} />
+        <DashboardMain />
+      </NavbarProvider>
     </Fragment>
   );
 }
