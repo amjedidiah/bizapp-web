@@ -18,7 +18,7 @@ function Navbar({ navList }: Props) {
   return (
     <nav
       className={cn(
-        "max-lg:fixed max-lg:shadow-xl left-0 top-0 flex flex-col py-8 px-[23px] max-[576px]:px-4 gap-20 lg:gap-[57px] bg-main-blue lg:w-[292px] h-fit z-[1]",
+        "max-lg:fixed max-lg:shadow-xl left-0 top-0 flex flex-col py-8 px-[23px] max-[576px]:px-4 gap-20 lg:gap-[57px] bg-main-blue-100 lg:w-[292px] h-fit z-[1]",
         {
           "max-lg:w-[292px]": !isCollapsed,
         }
@@ -26,7 +26,7 @@ function Navbar({ navList }: Props) {
     >
       <div
         className={cn(
-          "lg:hidden bg-main-blue rounded-full absolute -right-4 top-24 max-[576px]:top-[88px] p-1 max-[576px]:scale-90",
+          "lg:hidden bg-main-blue-100 rounded-full absolute -right-4 top-24 max-[576px]:top-[88px] p-1 max-[576px]:scale-90",
           {
             "rotate-180": isCollapsed,
           }

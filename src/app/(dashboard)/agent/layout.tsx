@@ -1,5 +1,7 @@
-import DashboardLayout from "@/components/shared/dashboard-layout";
 import { PropsWithChildren } from "react";
+import NavbarProvider from "@/context/navbar.context";
+import DashboardMain from "@/components/shared/dashboard-main";
+import Navbar from "@/components/shared/navbar/navbar";
 
 export default function AgentLayout({ children }: PropsWithChildren) {
   const navList = [
@@ -13,5 +15,10 @@ export default function AgentLayout({ children }: PropsWithChildren) {
     { name: "logout", pathname: "/agent/logout" },
   ];
 
-  return <DashboardLayout navList={navList}>{children}</DashboardLayout>;
+  return (
+    <NavbarProvider>
+      <Navbar navList={navList} />
+      <DashboardMain>{children}</DashboardMain>
+    </NavbarProvider>
+  );
 }

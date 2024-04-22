@@ -25,4 +25,12 @@
     .shadow-status {
         box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
     }
+
+    .shadow-in-mails {
+        box-shadow: 0px 7.137px 24.267px 0px rgba(0, 0, 0, 0.08);
+    }
+
+    .border-agent-collaboration {
+        border-bottom: 1px solid var(--Light-Red, rgba(61, 60, 59, 0.50));
+    }
 }

@@ -5,7 +5,7 @@ import truncate from "truncate-html";
 export default function DashboardHeader() {
   return (
     <header className="py-6 lg:pt-7 lg:pb-9 flex justify-between md:items-center border-b border-black max-md:flex-col max-md:gap-3 max-md:py-3">
-      <h1 className="text-gray-900 text-3xl max-[576px]:text-2xl lg:text-4xl lg:leading-[44px] -tracking-[0.72px] max-md:order-2">
+      <h1 className="text-main-blue text-3xl max-[576px]:text-2xl lg:text-4xl lg:leading-[44px] -tracking-[0.72px] max-md:order-2">
         Dashboard
       </h1>
       <div className="flex items-center gap-3 max-[576px]:gap-2 max-md:justify-between">
@@ -37,7 +37,7 @@ export default function DashboardHeader() {
           </div>
         </div>
 
-        <div className="p-2 relative rounded-full bg-gray-200 max-md:order-3">
+        <div className="p-2 relative rounded-full bg-slate-200 max-md:order-3">
           <Image
             src="/images/notification-bell.png"
             width={24}
