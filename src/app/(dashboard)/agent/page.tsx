@@ -6,12 +6,12 @@ import PendingCustomers from "@/components/agent/pending-customers";
 
 export default function Agent() {
   return (
-    <div className="grid lg:grid-cols-[1fr,auto] gap-[31px] overflow-auto">
+    <div className="grid laptop:grid-cols-[1fr,auto] gap-[31px] overflow-auto pt-[18px] pb-[30px] pl-[100px] pr-6 sm:pr-[30px] sm:max-desktop:pl-[134px] desktop:px-[30px]">
       <AgentSection className="">
         <InMailMessages />
         <ClosedCases />
       </AgentSection>
-      <AgentSection className="min-w-[377px] w-[25vw]">
+      <AgentSection className="laptop:min-w-[377px] laptop:w-[25vw]">
         <PendingCustomers />
         <PendingCollaborations />
       </AgentSection>

@@ -1,7 +1,7 @@
 import { BAClose, BAFilter, BASearch } from "@/lib/icons";
 import DashboardTitle from "@/components/shared/dashboard-title";
 import Button from "@/components/shared/button";
-import { cn } from "@/lib/utils";
+import Table from "@/components/shared/table";
 
 const closedCases = [
   {
@@ -9,7 +9,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Wallet",
     agent: "Ummi",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -17,7 +17,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Airtime",
     agent: "Zarah",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -25,7 +25,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Data",
     agent: "Christy",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -33,7 +33,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Fraud",
     agent: "Abdul",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -41,7 +41,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "E-Commerce",
     agent: "Godwin",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -49,7 +49,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Wallet",
     agent: "Godwin",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -57,7 +57,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Wallet",
     agent: "Ummi",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -65,7 +65,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Wallet",
     agent: "Ummi",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -73,7 +73,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Wallet",
     agent: "Ummi",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -81,7 +81,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Wallet",
     agent: "Ummi",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
   {
@@ -89,7 +89,7 @@ const closedCases = [
     customer: "Abdul Ibrahim",
     complain: "Wallet",
     agent: "Ummi",
-    dateString: "Today",
+    date: "Today",
     status: "Closed",
   },
 ];
@@ -105,12 +105,10 @@ const columnNames = [
 
 export default function ClosedCases() {
   return (
-    <div className="flex flex-col gap-6 lg:gap-[25px]">
-      <div className="flex justify-between items-end">
-        <div className="flex flex-col gap-2">
-          <DashboardTitle>Closed Cases</DashboardTitle>
-        </div>
-        <div className="flex items-center gap-4">
+    <div className="flex flex-col gap-4 lg:gap-[25px]">
+      <div className="flex max-sm:flex-col max-sm:gap-1 justify-between sm:items-end">
+        <DashboardTitle>Closed Cases</DashboardTitle>
+        <div className="flex items-center gap-4 max-sm:justify-between">
           <Button variant="yellow">View All</Button>
           <div className="flex p-[10px] gap-4 items-center">
             <span className="text-black-200 font-inter text-xs">Filter by</span>
@@ -135,58 +133,20 @@ export default function ClosedCases() {
           <BAClose />
         </span>
       </form>
-      <div>
-        <div className="grid grid-cols-[auto,auto,repeat(4,1fr)] bg-slate-100 capitalize text-start">
-          {columnNames.map((item) => (
-            <p
-              className="text-black-100 text-xs font-semibold p-3 lg:px-6 bg-slate-200"
-              key={item}
-            >
-              {item}
-            </p>
-          ))}
-          {closedCases.map((item) => {
-            const { id, ...rest } = item;
-            const updatedRest = { ...rest, button: "View" };
-
-            return Object.values(updatedRest).map((item, i) => (
-              <p
-                className={cn("text-xs p-3 lg:py-5 lg:px-6 text-black-200", {
-                  "font-semibold text-blue": i === 0,
-                  "text-red-100": i === 3,
-                })}
-                key={id}
-              >
-                <span
-                  className={cn({
-                    "bg-green bg-opacity-30 rounded p-1": i === 4,
-                    "text-black text-sm": i >= 4,
-                    underline: i > 4,
-                  })}
-                >
-                  {item}
-                </span>
-              </p>
-            ));
-          })}
-        </div>
-        <div className="flex justify-center items-center gap-6 bg-slate-200 text-xs text-black-100 font-semibold py-[22px]">
-          <p>Previous page</p>
-          <div className="flex item-center gap-2">
-            {Array(7)
-              .fill(0)
-              .map((item, i) => (
-                <span
-                  key={i}
-                  className="w-5 h-5 bg-slate-400 flex items-center justify-center rounded-full"
-                >
-                  {i}
-                </span>
-              ))}
-          </div>
-          <p className="text-xs text-black-100 font-semibold">Next page</p>
-        </div>
-      </div>
+      <Table
+        columnNames={columnNames}
+        data={closedCases}
+        ActionComponent={ClosedCasesButton}
+        containerClassName="grid-cols-[auto,auto,repeat(4,1fr)] max-md:[&_p:not(:nth-child(6n))]:border-b-0 max-md:[&_p:nth-child(6n)]:text-right max-md:[&_p:nth-child(6n)]:mb-3"
+        headerClassName="p-3 lg:px-6"
+        cellClassName="text-xs p-3 lg:py-5 lg:px-6 text-black-200"
+        firstCellClassName="text-blue"
+        pagination
+      />
     </div>
   );
+}
+
+function ClosedCasesButton() {
+  return <span className="text-black text-sm underline">View</span>;
 }

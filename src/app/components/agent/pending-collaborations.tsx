@@ -31,10 +31,12 @@ const pendingCollaborations = [
 
 export default function PendingCollaborations() {
   return (
-    <div className="flex flex-col gap-[26px]">
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-4 lg:gap-[26px]">
+      <div className="flex max-sm:flex-col sm:items-center justify-between gap-1">
         <DashboardTitle>Pending Collaborations</DashboardTitle>
-        <Button variant="yellow-outline">View all</Button>
+        <div className="w-fit">
+          <Button variant="yellow-outline">View all</Button>
+        </div>
       </div>
       <div className="flex flex-col px-3 gap-[5px] rounded bg-slate-200">
         {pendingCollaborations.map(({ id, agent, issue }) => (

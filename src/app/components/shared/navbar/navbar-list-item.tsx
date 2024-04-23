@@ -58,18 +58,18 @@ function NavbarListItem({ name, pathname }: NavItem) {
       <Link
         href={pathname}
         className={cn("py-2 pl-4 pr-6 flex gap-3 items-center", {
-          "max-lg:flex-col max-lg:p-2 max-lg:gap-2": isCollapsed,
+          "max-desktop:justify-center max-desktop:px-0": isCollapsed,
         })}
       >
         <span>
           <Icon />
         </span>
         <span
-          className={cn("text-sm lg:leading-6 capitalize max-lg:font-bold", {
+          className={cn("text-sm sm:leading-6 capitalize", {
             "text-white": !isActive,
             "text-main-blue font-medium": isActive,
             "text-red": isLogout,
-            "max-lg:text-xs max-lg:uppercase max-[576px]:hidden": isCollapsed,
+            "max-desktop:hidden": isCollapsed,
           })}
         >
           {name}

@@ -7,10 +7,7 @@ export default function AgentSection({
   ...rest
 }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
   return (
-    <div
-      className={cn("flex flex-col gap-6 lg:gap-[50px]", className)}
-      {...rest}
-    >
+    <div className={cn("flex flex-col gap-[50px]", className)} {...rest}>
       {children}
     </div>
   );

@@ -18,15 +18,15 @@ function Navbar({ navList }: Props) {
   return (
     <nav
       className={cn(
-        "max-lg:fixed max-lg:shadow-xl left-0 top-0 flex flex-col py-8 px-[23px] max-[576px]:px-4 gap-20 lg:gap-[57px] bg-main-blue-100 lg:w-[292px] h-fit z-[1]",
+        "max-desktop:fixed max-desktop:shadow-xl left-0 top-0 flex flex-col py-8 px-4 sm:px-[23px] gap-20 desktop:gap-[57px] bg-main-blue-100 h-fit z-[1] max-w-[292px]",
         {
-          "max-lg:w-[292px]": !isCollapsed,
+          "": !isCollapsed,
         }
       )}
     >
       <div
         className={cn(
-          "lg:hidden bg-main-blue-100 rounded-full absolute -right-4 top-24 max-[576px]:top-[88px] p-1 max-[576px]:scale-90",
+          "desktop:hidden bg-main-blue-100 rounded-full absolute -right-4 top-24 max-sm:top-[88px] p-1 max-sm:scale-90",
           {
             "rotate-180": isCollapsed,
           }
@@ -40,17 +40,17 @@ function Navbar({ navList }: Props) {
       <Link
         href={navList[0].pathname}
         className={cn("flex items-center gap-[10px]", {
-          "max-lg:text-center": isCollapsed,
+          "max-desktop:text-center": isCollapsed,
         })}
       >
-        <span className="font-mansalva flex-1 text-white text-5xl max-[576px]:text-4xl lg:text-[64px]">
+        <span className="font-mansalva flex-1 text-white text-5xl max-sm:text-4xl desktop:text-[64px]">
           CS
         </span>
         <span
           className={cn(
-            "text-2xl lg:text-[32px] font-semibold lg:leading-[35px] text-logo-gradient",
+            "text-2xl desktop:text-[32px] font-semibold desktop:leading-[35px] text-logo-gradient",
             {
-              "max-lg:hidden": isCollapsed,
+              "max-desktop:hidden": isCollapsed,
             }
           )}
         >

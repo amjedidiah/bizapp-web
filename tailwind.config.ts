@@ -48,6 +48,11 @@ const config: Config = {
         },
         blue: "#0064E5",
       },
+      screens: {
+        mobile: "576px",
+        laptop: "1199px",
+        desktop: "1320px",
+      },
     },
   },
   plugins: [],

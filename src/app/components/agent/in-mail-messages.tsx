@@ -28,9 +28,9 @@ const inMails = [
 
 export default function InMailMessages() {
   return (
-    <div className="flex flex-col gap-6 lg:gap-8">
-      <div className="flex justify-between items-end">
-        <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4 lg:gap-8">
+      <div className="flex max-md:flex-col gap-4 justify-between md:items-end">
+        <div className="flex flex-col gap-1 lg:gap-2">
           <DashboardTitle>in-Mail Messages</DashboardTitle>
           <p className="flex items-center gap-1">
             <span className="text-xs text-gray-100">
@@ -41,7 +41,7 @@ export default function InMailMessages() {
             </span>
           </p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center max-sm:justify-between">
           <Button variant="yellow">Create New in-Mail</Button>
           <Button>View All</Button>
         </div>
