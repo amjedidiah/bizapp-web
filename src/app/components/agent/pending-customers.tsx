@@ -1,6 +1,8 @@
 import Button from "@/components/shared/button";
 import DashboardTitle from "@/components/shared/dashboard-title";
 import Table from "@/components/shared/table";
+import { AgentLinks } from "@/lib/constants";
+import Link from "next/link";
 
 const pendingCustomers = [
   {
@@ -47,16 +49,18 @@ export default function PendingCustomers() {
     <div className="flex flex-col gap-4 lg:gap-[26px]">
       <div className="flex max-sm:flex-col gap-1 sm:items-center justify-between">
         <DashboardTitle>Pending Customers</DashboardTitle>
-        <div className="w-fit">
+        <Link href={AgentLinks.Pending} className="w-fit">
           <Button variant="yellow-outline">View all</Button>
-        </div>
+        </Link>
       </div>
       <Table
         columnNames={columnNames}
         data={pendingCustomers}
-        containerClassName="grid-cols-4 laptop:grid-cols-[1fr,auto,1fr,auto] max-md:[&_p:not(:nth-child(4n))]:border-b-0 max-md:[&_p:nth-child(4n)]:text-right max-md:[&_p:nth-child(4n)]:mb-3"
+        containerClassName="md:bg-slate-100 grid-cols-4 laptop:grid-cols-[1fr,auto,1fr,auto] max-md:[&_p:not(:nth-child(4n))]:border-b-0 max-md:[&_p:nth-child(4n)]:text-right max-md:[&_p:nth-child(4n)]:mb-3"
         headerClassName="p-[10px] lg:px-3"
         cellClassName="p-[10px] lg:px-3"
+        colCount={4}
+        moreLink="/agent/pending"
       />
     </div>
   );

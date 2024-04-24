@@ -1,7 +1,11 @@
-import { BAClose, BAFilter, BASearch } from "@/lib/icons";
+import { BAClose, BASearch } from "@/lib/icons";
 import DashboardTitle from "@/components/shared/dashboard-title";
 import Button from "@/components/shared/button";
 import Table from "@/components/shared/table";
+import ClosedCasesButton from "@/components/action-buttons/closed-cases-button";
+import Filter from "@/components/shared/filter";
+import Link from "next/link";
+import { AgentLinks } from "@/lib/constants";
 
 const closedCases = [
   {
@@ -109,16 +113,13 @@ export default function ClosedCases() {
       <div className="flex max-sm:flex-col max-sm:gap-1 justify-between sm:items-end">
         <DashboardTitle>Closed Cases</DashboardTitle>
         <div className="flex items-center gap-4 max-sm:justify-between">
-          <Button variant="yellow">View All</Button>
-          <div className="flex p-[10px] gap-4 items-center">
-            <span className="text-black-200 font-inter text-xs">Filter by</span>
-            <span>
-              <BAFilter />
-            </span>
-          </div>
+          <Link href={AgentLinks.Resolved}>
+            <Button variant="yellow">View All</Button>
+          </Link>
+          <Filter />
         </div>
       </div>
-      <form className="flex items-center gap-[31px] w-full lg:max-w-[342px] py-3 px-2 rounded-lg border border-gray-900 border-opacity-20">
+      <form className="flex items-center gap-[31px] w-full lg:max-w-[342px] py-3 px-2 rounded-lg border border-gray-400 border-opacity-20">
         <div className="flex flex-1 items-center gap-[5px]">
           <span>
             <BASearch />
@@ -137,16 +138,13 @@ export default function ClosedCases() {
         columnNames={columnNames}
         data={closedCases}
         ActionComponent={ClosedCasesButton}
-        containerClassName="grid-cols-[auto,auto,repeat(4,1fr)] max-md:[&_p:not(:nth-child(6n))]:border-b-0 max-md:[&_p:nth-child(6n)]:text-right max-md:[&_p:nth-child(6n)]:mb-3"
+        containerClassName="md:bg-slate-100 grid-cols-[auto,auto,repeat(4,1fr)] max-md:[&_p:not(:nth-child(6n))]:border-b-0 max-md:[&_p:nth-child(6n)]:text-right max-md:[&_p:nth-child(6n)]:mb-3"
         headerClassName="p-3 lg:px-6"
         cellClassName="text-xs p-3 lg:py-5 lg:px-6 text-black-200"
         firstCellClassName="text-blue"
+        colCount={6}
         pagination
       />
     </div>
   );
-}
-
-function ClosedCasesButton() {
-  return <span className="text-black text-sm underline">View</span>;
 }

@@ -1,4 +1,4 @@
-import { manrope, mansalva } from "@/lib/fonts";
+import { manrope, mansalva, inter, roboto } from "@/lib/fonts";
 import "@/globals.css";
 import { PropsWithChildren } from "react";
 import { Metadata } from "next";
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${mansalva.variable} font-manrope`}
+      className={`${manrope.variable} ${mansalva.variable} ${inter.variable} ${roboto.variable} font-manrope`}
     >
       <body>
         <div className="w-full h-full overflow-hidden flex">{children}</div>

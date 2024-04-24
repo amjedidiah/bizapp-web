@@ -26,7 +26,7 @@ function Navbar({ navList }: Props) {
     >
       <div
         className={cn(
-          "desktop:hidden bg-main-blue-100 rounded-full absolute -right-4 top-24 max-sm:top-[88px] p-1 max-sm:scale-90",
+          "desktop:hidden bg-main-blue-100 rounded-full absolute -right-4 top-24 max-sm:top-[88px] p-1 max-sm:scale-90 cursor-pointer",
           {
             "rotate-180": isCollapsed,
           }

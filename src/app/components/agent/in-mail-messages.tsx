@@ -1,6 +1,6 @@
-import { BAInfo } from "@/lib/icons";
 import DashboardTitle from "@/components/shared/dashboard-title";
-import Button from "@/components/shared/button";
+import InMailMessagesInfo from "@/components/agent/in-mail-messages-info";
+import InMailActions from "@/components/agent/in-mail-actions";
 
 const inMails = [
   {
@@ -29,22 +29,17 @@ const inMails = [
 export default function InMailMessages() {
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
-      <div className="flex max-md:flex-col gap-4 justify-between md:items-end">
+      <div className="flex max-sm:flex-col gap-4 justify-between sm:items-end">
         <div className="flex flex-col gap-1 lg:gap-2">
           <DashboardTitle>in-Mail Messages</DashboardTitle>
-          <p className="flex items-center gap-1">
+          <div className="flex items-center gap-1">
             <span className="text-xs text-gray-100">
               Monitor all messages and conversations.
             </span>
-            <span>
-              <BAInfo />
-            </span>
-          </p>
+            <InMailMessagesInfo />
+          </div>
         </div>
-        <div className="flex gap-4 items-center max-sm:justify-between">
-          <Button variant="yellow">Create New in-Mail</Button>
-          <Button>View All</Button>
-        </div>
+        <InMailActions />
       </div>
       <div className="flex flex-col py-[10px] px-[14px] gap-5 rounded-[6px] shadow-in-mails bg-yellow-300">
         {inMails.map(({ id, from, title, body, timeAgo }) => (
@@ -61,7 +56,7 @@ export default function InMailMessages() {
               </div>
               <div className="flex flex-col gap-[6px]">
                 <p className="text-main-blue-100 text-sm font-bold">{title}</p>
-                <p className="text-gray-400 text-xs lg:leading-[18px] text-ellipsis line-clamp-1">
+                <p className="text-gray-900 text-xs lg:leading-[18px] text-ellipsis line-clamp-1">
                   {body}
                 </p>
               </div>

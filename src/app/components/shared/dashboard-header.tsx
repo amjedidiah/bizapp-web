@@ -1,25 +1,15 @@
-import { BAStatusCaret, BAStatusCircle } from "@/lib/icons";
+import { BAStatusCircle } from "@/lib/icons";
 import Image from "next/image";
 import truncate from "truncate-html";
+import DashboardHeaderTitle from "@/components/shared/dashboard-header-title";
+import OnlineStatusButton from "@/components/action-buttons/online-status-button";
 
 export default function DashboardHeader() {
   return (
     <header className="py-6 lg:pt-7 lg:pb-9 flex justify-between md:items-center border-b border-black max-md:flex-col max-md:gap-3 max-md:py-3 ml-[100px] mr-6 sm:mr-[30px] sm:max-desktop:ml-[134px] desktop:mx-[30px]">
-      <h1 className="text-main-blue text-3xl max-mobile:text-2xl lg:text-4xl lg:leading-[44px] -tracking-[0.72px] max-md:order-2">
-        Dashboard
-      </h1>
+      <DashboardHeaderTitle />
       <div className="flex items-center gap-3 max-mobile:gap-2 max-md:justify-between">
-        <div className="py-[10px] px-[18px] max-mobile:p-2 flex gap-2 items-center md:mr-3 rounded-lg border border-black bg-yellow shadow-status max-md:order-2">
-          <span>
-            <BAStatusCircle />
-          </span>
-          <span className="text-sm text-green font-semibold lg:leading-6 max-mobile:hidden">
-            Online
-          </span>
-          <span>
-            <BAStatusCaret />
-          </span>
-        </div>
+        <OnlineStatusButton />
 
         <div className="flex items-center gap-2 max-md:order-1 max-md:flex-1">
           <div className="w-10 h-10 relative rounded-full overflow-hidden flex-shrink-0">
@@ -28,7 +18,7 @@ export default function DashboardHeader() {
           <div className="flex flex-col gap-1 text-sm">
             <p className="text-black-100 font-semibold leading-4">
               <span className="max-mobile:hidden">Ummi Moh&apos;d</span>
-              <span className="hidden max-mobile:block">
+              <span className="mobile:hidden">
                 {truncate("Ummi Moh&apos;d", 10, { byWords: false })}
               </span>
             </p>

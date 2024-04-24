@@ -1,4 +1,5 @@
 import { useNavbarContext } from "@/context/navbar.context";
+import { Links } from "@/lib/constants";
 import {
   BAChat,
   BACustomers,
@@ -22,17 +23,17 @@ export type NavItem = {
 function NavbarListItem({ name, pathname }: NavItem) {
   const urlPath = usePathname();
   const isActive = urlPath === pathname;
-  const isLogout = name === "logout";
+  const isLogout = name === Links.Logout;
   const Icon = useMemo(
     () =>
       ({
-        dashboard: BADashboard,
-        pending: BAPending,
-        customers: BACustomers,
-        chat: BAChat,
-        resolved: BAResolved,
-        templates: BATemplates,
-        settings: BASettings,
+        [Links.Dashboard]: BADashboard,
+        [Links.Pending]: BAPending,
+        [Links.Customers]: BACustomers,
+        [Links.Chat]: BAChat,
+        [Links.Resolved]: BAResolved,
+        [Links.Templates]: BATemplates,
+        [Links.Settings]: BASettings,
       }[name] || BALogout),
     [name]
   );

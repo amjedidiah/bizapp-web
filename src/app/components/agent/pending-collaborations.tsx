@@ -1,5 +1,7 @@
 import Button from "@/components/shared/button";
 import DashboardTitle from "@/components/shared/dashboard-title";
+import { AgentLinksChat } from "@/lib/constants";
+import Link from "next/link";
 
 const pendingCollaborations = [
   {
@@ -34,9 +36,9 @@ export default function PendingCollaborations() {
     <div className="flex flex-col gap-4 lg:gap-[26px]">
       <div className="flex max-sm:flex-col sm:items-center justify-between gap-1">
         <DashboardTitle>Pending Collaborations</DashboardTitle>
-        <div className="w-fit">
+        <Link href={AgentLinksChat.Collaborations} className="w-fit">
           <Button variant="yellow-outline">View all</Button>
-        </div>
+        </Link>
       </div>
       <div className="flex flex-col px-3 gap-[5px] rounded bg-slate-200">
         {pendingCollaborations.map(({ id, agent, issue }) => (
@@ -48,9 +50,11 @@ export default function PendingCollaborations() {
               <p className="bg-opacity-50 text-sm capitalize">agent {agent}</p>
               <p className="leading-5">{issue} issues</p>
             </div>
-            <Button variant="yellow" underline>
-              View
-            </Button>
+            <Link href={`${AgentLinksChat.Collaborations}/${id}`}>
+              <Button variant="yellow" underline>
+                View
+              </Button>
+            </Link>
           </div>
         ))}
       </div>
