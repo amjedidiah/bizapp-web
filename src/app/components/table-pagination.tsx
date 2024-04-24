@@ -6,9 +6,11 @@ import { MouseEventHandler, memo, useCallback, useState } from "react";
 function TablePagination({
   activeClassName,
   className,
+  prevNextClassName,
 }: {
   activeClassName: string;
   className?: string;
+  prevNextClassName?: string;
 }) {
   const pagesCount = 7;
   const [activePage, setActivePage] = useState(0);
@@ -38,15 +40,19 @@ function TablePagination({
   return (
     <div
       className={cn(
-        "flex justify-center items-center gap-4 lg:gap-6 bg-slate-200 text-black-100 font-semibold py-4 md:py-[22px] max-md:mt-[6px]",
+        "flex justify-center items-center gap-4 lg:gap-6 bg-slate-200 text-black-100 font-semibold py-4 md:py-[22px] max-md:mt-[6px] rounded-b",
         className
       )}
     >
       <p
-        className={cn("text-black-100 font-semibold", {
-          "text-opacity-40 cursor-not-allowed": cannotPrev,
-          "cursor-pointer": !cannotPrev,
-        })}
+        className={cn(
+          "text-black-100 font-semibold",
+          {
+            "text-opacity-40 cursor-not-allowed": cannotPrev,
+            "cursor-pointer": !cannotPrev,
+          },
+          prevNextClassName
+        )}
         onClick={handlePrev}
       >
         Previous
@@ -76,10 +82,14 @@ function TablePagination({
           })}
       </div>
       <p
-        className={cn("text-black-100 font-semibold", {
-          "text-opacity-40 cursor-not-allowed": cannotNext,
-          "cursor-pointer": !cannotNext,
-        })}
+        className={cn(
+          "text-black-100 font-semibold",
+          {
+            "text-opacity-40 cursor-not-allowed": cannotNext,
+            "cursor-pointer": !cannotNext,
+          },
+          prevNextClassName
+        )}
         onClick={handleNext}
       >
         Next

@@ -2,7 +2,7 @@
 
 import Button from "@/components/shared/button";
 import Link from "next/link";
-import InMailMessageModal from "@/components/agent/in-mail-message-modal";
+import InMailMessageModal from "@/components/agent/dashboard/in-mail/in-mail-message-modal";
 import { memo } from "react";
 import useModal from "@/hooks/use-modal";
 import { AgentLinks } from "@/lib/constants";
@@ -16,7 +16,7 @@ function InMailActions() {
         <Button variant="yellow" onClick={openModal}>
           Create New in-Mail
         </Button>
-        <Link href={AgentLinks.Chat}>
+        <Link href={AgentLinks.Chat.pathname}>
           <Button>View All</Button>
         </Link>
       </div>

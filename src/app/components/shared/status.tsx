@@ -1,18 +1,34 @@
+import { CustomerStatus } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { HTMLAttributes } from "react";
 
 type Props = {
   state: string;
-};
+  isSame?: boolean;
+} & HTMLAttributes<HTMLSpanElement>;
 
-export default function Status({ state }: Props) {
+export default function Status({
+  state,
+  isSame = false,
+  className,
+  ...rest
+}: Props) {
   const status = state.toLowerCase();
   return (
     <span
-      className={cn("p-1 text-sm leading-4 rounded capitalize", {
-        "bg-red-100 bg-opacity-30 text-red-100": status === "pending",
-        "text-black bg-yellow-200 bg-opacity-60": status === "attending",
-        "bg-green bg-opacity-30 text-black": status === "closed",
-      })}
+      className={cn(
+        "p-1 text-sm leading-4 rounded capitalize",
+        {
+          "bg-red-100 bg-opacity-30 text-red-100":
+            status === CustomerStatus.Pending,
+          "text-black bg-yellow-200 bg-opacity-60":
+            status === CustomerStatus.Attending,
+          "bg-green bg-opacity-30 text-black": status === CustomerStatus.Closed,
+          "text-green bg-green-100": status === CustomerStatus.Closed && isSame,
+        },
+        className
+      )}
+      {...rest}
     >
       {state}
     </span>

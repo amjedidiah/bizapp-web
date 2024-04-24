@@ -1,11 +1,17 @@
 "use client";
 
+import { AgentLinksChat, CustomerStatus } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { memo } from "react";
+import { useRouter } from "next/navigation";
+import { memo, useCallback } from "react";
 
-function PendingRequestsButton(props: Record<string, string>) {
-  const handleClick = () => console.info(props);
-  const disabled = props?.status.toLowerCase() === "attending";
+function PendingRequestsButton({ id, status }: Record<string, string>) {
+  const router = useRouter();
+  const handleClick = useCallback(
+    () => router.push(`${AgentLinksChat.Customers}/${id}`),
+    [router, id]
+  );
+  const disabled = status.toLowerCase() === CustomerStatus.Attending;
 
   return (
     <button
@@ -16,6 +22,7 @@ function PendingRequestsButton(props: Record<string, string>) {
         }
       )}
       onClick={handleClick}
+      disabled={disabled}
     >
       Accept
     </button>

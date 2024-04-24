@@ -1,13 +1,14 @@
 import AgentSection from "@/components/agent/agent-section";
-import ClosedCases from "@/components/agent/closed-cases";
-import InMailMessages from "@/components/agent/in-mail-messages";
-import PendingCollaborations from "@/components/agent/pending-collaborations";
-import PendingCustomers from "@/components/agent/pending-customers";
+import ClosedCases from "@/components/agent/dashboard/closed-cases";
+import InMailMessages from "@/components/agent/dashboard/in-mail/in-mail-messages";
+import PendingCollaborations from "@/components/agent/dashboard/pending-collaborations";
+import PendingCustomers from "@/components/agent/dashboard/pending-customers";
+import DashboardMainBody from "@/components/shared/dashboard-main-body";
 
 export default function Agent() {
   return (
-    <div className="grid laptop:grid-cols-[1fr,auto] gap-[31px] overflow-auto pt-[18px] pb-[30px] pl-[100px] pr-6 sm:pr-[30px] sm:max-desktop:pl-[134px] desktop:px-[30px]">
-      <AgentSection className="">
+    <DashboardMainBody className="laptop:grid-cols-[1fr,auto]">
+      <AgentSection>
         <InMailMessages />
         <ClosedCases />
       </AgentSection>
@@ -15,6 +16,6 @@ export default function Agent() {
         <PendingCustomers />
         <PendingCollaborations />
       </AgentSection>
-    </div>
+    </DashboardMainBody>
   );
 }

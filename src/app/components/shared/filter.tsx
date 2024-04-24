@@ -1,12 +1,15 @@
 "use client";
 
 import { BAFilter } from "@/lib/icons";
-import { memo, useCallback, useState } from "react";
+import { HTMLAttributes, memo, useCallback, useState } from "react";
 import Dropdown from "@/components/shared/dropdown";
+import { cn } from "@/lib/utils";
 
-const states = ["date", "ascending", "descending"];
-
-function Filter() {
+function Filter({
+  states,
+  className,
+  ...rest
+}: { states: string[] } & HTMLAttributes<HTMLDivElement>) {
   const [isDropdownHidden, setIsDropdownHidden] = useState(true);
 
   const toggleDropdown = useCallback(
@@ -18,8 +21,12 @@ function Filter() {
 
   return (
     <div
-      className="flex p-[10px] gap-4 items-center cursor-pointer relative"
+      className={cn(
+        "flex p-[10px] gap-4 items-center cursor-pointer relative w-fit",
+        className
+      )}
       onClick={toggleDropdown}
+      {...rest}
     >
       <span className="text-black-200 font-inter text-xs">Filter by</span>
       <span>

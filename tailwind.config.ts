@@ -32,6 +32,8 @@ const config: Config = {
         gray: {
           DEFAULT: "#6F7782",
           3: "#828282",
+          5: "#E0E0E0",
+          20: "#EFEFEF",
           50: "#D8DAE5",
           75: "#BCC2CC",
           100: "#B3B3B3",
@@ -43,6 +45,7 @@ const config: Config = {
         },
         green: {
           DEFAULT: "#4CA90C",
+          100: "#DEEDE5",
         },
         yellow: {
           DEFAULT: "#FCE28C",
@@ -58,6 +61,8 @@ const config: Config = {
         },
         blue: { DEFAULT: "#0064E5", 100: "#2A224F" },
         primary: "#3a3541",
+        "mid-gray": "#666666",
+        purple: "#8D37C7",
       },
       screens: {
         mobile: "576px",

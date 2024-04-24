@@ -1,3 +1,13 @@
+export enum CustomerStatus {
+  Attending = "attending",
+  Booked = "booked",
+  Cancelled = "cancelled",
+  CheckedIn = "checked in",
+  Closed = "closed",
+  Discharged = "discharged",
+  Pending = "pending",
+}
+
 export enum Links {
   Dashboard = "Dashboard",
   Pending = "Pending",
@@ -50,8 +60,10 @@ export const AgentLinks = {
 
 enum SubLinks {
   Collaborations = "Collaborations",
+  Customers = "Customers",
 }
 
 export const AgentLinksChat = {
   [SubLinks.Collaborations]: "/agent/chat/collaborations",
+  [SubLinks.Customers]: "/agent/chat/customers",
 };

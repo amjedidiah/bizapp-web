@@ -12,7 +12,6 @@ import {
 } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { memo, useMemo } from "react";
 
 export type NavItem = {
@@ -20,9 +19,11 @@ export type NavItem = {
   pathname: string;
 };
 
-function NavbarListItem({ name, pathname }: NavItem) {
-  const urlPath = usePathname();
-  const isActive = urlPath === pathname;
+type Props = {
+  isActive: boolean;
+} & NavItem;
+
+function NavbarListItem({ name, pathname, isActive = false }: Props) {
   const isLogout = name === Links.Logout;
   const Icon = useMemo(
     () =>

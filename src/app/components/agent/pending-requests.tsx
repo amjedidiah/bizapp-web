@@ -1,6 +1,7 @@
 import Table from "@/components/shared/table";
 import PendingRequestsButton from "@/components/action-buttons/pending-requests-button";
 import Filter from "@/components/shared/filter";
+import { CustomerStatus } from "@/lib/constants";
 
 const pendingRequests = [
   {
@@ -8,7 +9,7 @@ const pendingRequests = [
     customer: "Tanimu Ali Salisu",
     issue: "Wallet",
     department: "finance",
-    status: "pending",
+    status: CustomerStatus.Pending,
     location: "Wudil, Kano",
     agent: "----",
   },
@@ -17,7 +18,7 @@ const pendingRequests = [
     customer: "Tanimu Ali Salisu",
     issue: "Wallet",
     department: "finance",
-    status: "pending",
+    status: CustomerStatus.Pending,
     location: "Wudil, Kano",
     agent: "----",
   },
@@ -26,7 +27,7 @@ const pendingRequests = [
     customer: "Tanimu Ali Salisu",
     issue: "Wallet",
     department: "finance",
-    status: "pending",
+    status: CustomerStatus.Pending,
     location: "Wudil, Kano",
     agent: "----",
   },
@@ -35,7 +36,7 @@ const pendingRequests = [
     customer: "Tanimu Ali Salisu",
     issue: "Wallet",
     department: "finance",
-    status: "attending",
+    status: CustomerStatus.Attending,
     location: "Wudil, Kano",
     agent: "Zahra",
   },
@@ -44,7 +45,7 @@ const pendingRequests = [
     customer: "Tanimu Ali Salisu",
     issue: "Wallet",
     department: "finance",
-    status: "attending",
+    status: CustomerStatus.Attending,
     location: "Wudil, Kano",
     agent: "Christy",
   },
@@ -53,7 +54,7 @@ const pendingRequests = [
     customer: "Tanimu Ali Salisu",
     issue: "Wallet",
     department: "finance",
-    status: "attending",
+    status: CustomerStatus.Attending,
     location: "Wudil, Kano",
     agent: "Christy",
   },
@@ -71,21 +72,24 @@ const columnNames = [
 
 export default function PendingRequests() {
   return (
-    <div className="flex flex-col gap-4">
-      <Filter />
+    <>
+      <div className="flex flex-col gap-4 items-end">
+        <Filter states={["department", "state"]} />
+      </div>
+
       <Table
         columnNames={columnNames}
         data={pendingRequests}
-        containerClassName="grid-cols-7 laptop:grid-cols-[auto,repeat(6,1fr)] max-md:[&_p:not(:nth-child(7n))]:border-b-0 max-md:[&_p:nth-child(7n)]:text-right max-md:[&_p:nth-child(7n)]:mb-3 px-4"
-        headerClassName="py-5 px-[14px] bg-transparent"
-        cellClassName="p-[14px] lg:pt-6 mb-4 bg-white border-t text-black font-inter text-base"
-        noBoldCell
-        colCount={7}
         ActionComponent={PendingRequestsButton}
+        containerClassName="font-inter text-base lg:grid-cols-7 laptop:grid-cols-[auto,repeat(6,1fr)] max-lg:[&_p:not(:nth-child(7n))]:border-b-0 max-lg:[&_p:nth-child(7n)]:text-right max-lg:[&_p:nth-child(7n)]:mb-3 laptop:px-4"
+        headerClassName="p-[14px] laptop:pb-5 text-primary text-opacity-80 tracking-[0.15px] bg-transparent max-lg:hidden"
+        cellClassName="p-[14px] laptop:pt-6 lg:mb-4 bg-white lg:border-t text-black max-lg:shadow-md"
+        cellLabelClassName="max-lg:block"
+        noBoldCell
         pagination
         paginationClassName="lg:mt-[60px]"
         paginationActiveClassName="bg-black text-yellow-100"
       />
-    </div>
+    </>
   );
 }

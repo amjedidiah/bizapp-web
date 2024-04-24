@@ -14,9 +14,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       lang="en"
       className={`${manrope.variable} ${mansalva.variable} ${inter.variable} ${roboto.variable} font-manrope`}
     >
-      <body>
-        <div className="w-full h-full overflow-hidden flex">{children}</div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useMemo } from "react";
 import ShouldRender from "@/components/shared/should-render";
 import { ClassValue } from "clsx";
 import Button from "@/components/shared/button";
@@ -13,14 +13,16 @@ type TableProps = PropsWithChildren<{
   containerClassName: ClassValue;
   headerClassName: ClassValue;
   cellClassName: ClassValue;
+  cellLabelClassName?: ClassValue;
   noBoldCell?: boolean;
-  colCount: number;
   firstCellClassName?: ClassValue;
   ActionComponent?: ActionComponentType;
   moreLink?: string;
   pagination?: boolean;
   paginationClassName?: string;
+  paginationPrevNextClassName?: string;
   paginationActiveClassName?: string;
+  excludedKeys?: string[];
 }>;
 type ActionComponentType = FC<Record<string, string>>;
 type CellItem = ActionComponentType | string;
@@ -31,20 +33,24 @@ export default function Table({
   containerClassName,
   headerClassName,
   cellClassName,
+  cellLabelClassName,
   noBoldCell = false,
-  colCount,
   firstCellClassName,
   ActionComponent,
   moreLink,
   pagination,
   paginationClassName,
+  paginationPrevNextClassName,
   paginationActiveClassName = "bg-yellow",
+  excludedKeys,
 }: TableProps) {
+  const colCount = columnNames.length;
+
   return (
     <div className="text-xs">
       <div
         className={cn(
-          "grid max-md:grid-cols-1 capitalize text-start items-stretch",
+          "grid max-md:grid-cols-1 capitalize text-start items-stretch rounded-t",
           containerClassName
         )}
       >
@@ -53,7 +59,9 @@ export default function Table({
           columnNames={columnNames}
         />
         <Table.Rows
+          excludedKeys={excludedKeys}
           cellClassName={cellClassName}
+          cellLabelClassName={cellLabelClassName}
           data={data}
           ActionComponent={ActionComponent}
           firstCellClassName={firstCellClassName}
@@ -64,6 +72,7 @@ export default function Table({
       <ShouldRender condition={Boolean(pagination)}>
         <Table.Pagination
           className={paginationClassName}
+          prevNextClassName={paginationPrevNextClassName}
           activeClassName={paginationActiveClassName}
         />
       </ShouldRender>
@@ -87,12 +96,12 @@ Table.Columns = function TableColumns({
   return columnNames.map((item) => (
     <p
       className={cn(
-        "text-black-100 font-semibold bg-slate-200 flex items-center max-md:hidden",
+        "text-black-100 font-semibold bg-slate-200 flex items-center max-md:hidden capitalize rounded-t",
         headerClassName
       )}
       key={item}
     >
-      {item}
+      {item.toLowerCase()}
     </p>
   ));
 };
@@ -104,6 +113,8 @@ Table.Rows = function TableRows({
   noBoldCell,
   firstCellClassName,
   colCount,
+  excludedKeys = [],
+  cellLabelClassName = "max-md:block",
 }: Pick<
   TableProps,
   | "data"
@@ -111,13 +122,30 @@ Table.Rows = function TableRows({
   | "cellClassName"
   | "firstCellClassName"
   | "noBoldCell"
-  | "colCount"
->) {
-  const displayData = data.flatMap(({ id, ...item }) => {
-    if (ActionComponent) (item as any).action = ActionComponent;
+  | "excludedKeys"
+  | "cellLabelClassName"
+> & { colCount: number }) {
+  const compiledExcludedKeys = useMemo(
+    () => [...excludedKeys, "id"],
+    [excludedKeys]
+  );
+  const displayData = useMemo(
+    () =>
+      data.flatMap((obj) => {
+        const item = { ...obj };
 
-    return Object.entries(item);
-  });
+        // Iterate through keys to delete
+        compiledExcludedKeys.forEach((key) => {
+          // Delete the key from the object if it exists
+          if (item.hasOwnProperty(key)) delete item[key];
+        });
+
+        if (ActionComponent) (item as any).action = ActionComponent;
+
+        return Object.entries(item);
+      }),
+    [ActionComponent, compiledExcludedKeys, data]
+  );
 
   return displayData.map(([key, value], i) => {
     // const cellContainerClassName =
@@ -139,6 +167,7 @@ Table.Rows = function TableRows({
     return (
       <Table.Cell
         className={cellContainerClassName}
+        labelClassName={cellLabelClassName}
         value={value}
         key={0}
         index={key}
@@ -153,29 +182,43 @@ Table.Cell = function TableCell({
   value,
   index,
   item,
+  labelClassName,
 }: {
   className: string;
   value: CellItem;
   index: string;
   item: Record<string, string>;
+  labelClassName: ClassValue;
 }) {
   const isString = typeof value === "string";
   const isStatus = index === "status";
   const isDate = index === "date";
+  const isPhone = index === "phone";
+  const isEmail = index === "email";
   const Component = value as ActionComponentType;
   const str = value as string;
 
   return (
-    <p className={cn(className, "flex items-center gap-3 max-md:shadow-sm")}>
+    <p className={cn(className, "flex items-center gap-3")}>
       <ShouldRender condition={isString}>
-        <span className="md:hidden">{index}: </span>
+        <span className={cn("hidden", labelClassName)}>{index}: </span>
         <ShouldRender condition={isStatus}>
           <Status state={str} />
         </ShouldRender>
         <ShouldRender condition={isDate}>
           <span className="text-red-100">{str}</span>
         </ShouldRender>
-        <ShouldRender condition={!isDate && !isStatus}>
+        <ShouldRender condition={isEmail}>
+          <a href={`mailto:${str}`} className="underline text-main-blue">
+            {str}
+          </a>
+        </ShouldRender>
+        <ShouldRender condition={isPhone}>
+          <a href={`tel:${str}`} className="underline text-mid-gray">
+            {str}
+          </a>
+        </ShouldRender>
+        <ShouldRender condition={!isDate && !isStatus && !isEmail && !isPhone}>
           <span>{str}</span>
         </ShouldRender>
       </ShouldRender>

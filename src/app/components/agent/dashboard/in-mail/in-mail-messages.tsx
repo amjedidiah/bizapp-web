@@ -1,6 +1,6 @@
 import DashboardTitle from "@/components/shared/dashboard-title";
-import InMailMessagesInfo from "@/components/agent/in-mail-messages-info";
-import InMailActions from "@/components/agent/in-mail-actions";
+import InMailMessagesInfo from "@/components/agent/dashboard/in-mail/in-mail-messages-info";
+import InMailActions from "@/components/agent/dashboard/in-mail/in-mail-actions";
 
 const inMails = [
   {

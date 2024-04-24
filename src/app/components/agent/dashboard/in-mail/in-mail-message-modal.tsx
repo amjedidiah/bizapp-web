@@ -6,7 +6,7 @@ import {
   forwardRef,
   useCallback,
 } from "react";
-import InMailCollaborateAgentModal from "@/components/agent/in-mail-collaborate-agent-modal";
+import InMailCollaborateAgentModal from "@/components/agent/dashboard/in-mail/in-mail-collaborate-agent-modal";
 import useModal from "@/hooks/use-modal";
 
 type Props = {
