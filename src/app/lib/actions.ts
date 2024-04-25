@@ -26,5 +26,3 @@ export const getChats = (chatType: string) => {
 
   return chats[chatType as ChatLinks];
 };
-
-export const getChatsCount = (chatType: string) => getChats(chatType).length;

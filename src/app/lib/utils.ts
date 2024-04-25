@@ -1,22 +1,19 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import stringSimilarity from "string-similarity";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 // Function to find the pathname with the most similarity
-export function findMostSimilarPathname(url: string, pathnames: string[]) {
-  let bestMatch = { index: -1, similarity: -Infinity };
+export function findMostSimilarPathname(url: string, params: Params) {
+  const items = params?.slug || params?.id;
+  if (!items) return url;
 
-  pathnames.forEach((pathname, index) => {
-    const similarity = stringSimilarity.compareTwoStrings(url, pathname);
-    if (similarity > bestMatch.similarity) {
-      bestMatch.index = index;
-      bestMatch.similarity = similarity;
-    }
-  });
+  let parts = url.split("/");
+  let partsToRemove = items.length;
+  let modifiedParts = parts.slice(0, -partsToRemove);
 
-  return bestMatch.index;
+  return modifiedParts.join("/");
 }

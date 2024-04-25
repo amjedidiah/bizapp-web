@@ -1,20 +1,20 @@
 import { AgentLinks } from "@/lib/constants";
+import { findMostSimilarPathname } from "@/lib/utils";
 import { useParams, usePathname } from "next/navigation";
 import { useMemo } from "react";
 
 export default function useHeaderTitle() {
   const pathname = usePathname();
   const params = useParams();
+  const rootPath = findMostSimilarPathname(pathname, params);
 
   const title = useMemo(() => {
-    if (pathname.includes(AgentLinks.Pending.pathname))
-      return "Pending Requests";
     if (pathname.includes(AgentLinks.Customers.pathname))
       return `Customer${!params?.id ? "s" : ""}`;
-    if (pathname.includes(AgentLinks.Chat.pathname)) return "Chat";
 
-    return "Dashboard";
-  }, [params?.id, pathname]);
+    return Object.values(AgentLinks).find((item) => item.pathname === rootPath)
+      ?.title;
+  }, [params?.id, pathname, rootPath]);
 
   const hasBackArrow = useMemo(
     () =>

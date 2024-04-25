@@ -3,22 +3,21 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import ShouldRender from "@/components/shared/should-render";
-import { useParams } from "next/navigation";
-import useSWR from "swr";
-import { getChats } from "@/lib/actions";
 import { memo } from "react";
 
-type Props = {
+export type BodyNavigationItemProps = {
   href: string;
   name: string;
+  count?: number;
+  isActive: boolean;
 };
 
-function ChatNavigationItem({ href, name }: Props) {
-  const params = useParams();
-  const [chatType] = params.slug as string[];
-  const isActive = chatType.toLowerCase() === name.toLowerCase();
-  const { data } = useSWR(name.toLowerCase() || null, getChats);
-
+function BodyNavigationItem({
+  href,
+  name,
+  count,
+  isActive,
+}: BodyNavigationItemProps) {
   return (
     <Link
       href={href}
@@ -31,13 +30,13 @@ function ChatNavigationItem({ href, name }: Props) {
       )}
     >
       {name.toLowerCase()}
-      <ShouldRender condition={Boolean(data?.length)}>
+      <ShouldRender condition={Boolean(count)}>
         <span className="flex items-center justify-center absolute top-[7px] right-[2px] laptop:right-[7px] w-[18px] height-[18px] rounded-full bg-main-blue text-yellow-100 font-inter text-xs font-semibold">
-          {data?.length}
+          {count}
         </span>
       </ShouldRender>
     </Link>
   );
 }
 
-export default memo(ChatNavigationItem);
+export default memo(BodyNavigationItem);

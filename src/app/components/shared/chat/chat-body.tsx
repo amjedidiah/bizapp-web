@@ -1,14 +1,15 @@
 "use client";
 import { useParams } from "next/navigation";
-import ChatEmpty from "@/components/shared/chat/chat-empty";
+import Empty from "@/components/shared/empty";
 import Avatar from "@/components/shared/avatar";
 import ChatBodyMessages from "@/components/shared/chat/chat-body-messages";
 import ChatBodyActions from "@/components/shared/chat/chat-body-actions";
+import { BAEmptyChat } from "@/lib/icons";
 
 export default function ChatBody() {
   const params = useParams();
   if (typeof params.slug !== "string" && params.slug.length < 2)
-    return <ChatEmpty />;
+    return <Empty Icon={BAEmptyChat} text="Open a chat or start a new Chat" />;
 
   return (
     <div className="lg:pt-[52px] flex-1 flex flex-col lg:overflow-hidden relative">
