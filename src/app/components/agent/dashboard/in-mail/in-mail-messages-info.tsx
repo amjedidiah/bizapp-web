@@ -27,7 +27,7 @@ function InMailMessagesInfo() {
       <ShouldRender condition={infoIsVisible}>
         <span
           className={cn(
-            "absolute p-[19px] pb-[18px] max-w-[187px] bg-slate-700 text-white text-xs text-center right-[10px] top-[18px] lg:left-[10px] lg:top-[10px] w-[225px] rounded-[10px]",
+            "absolute p-[19px] pb-[18px] max-w-[187px] bg-gray-1 text-white text-xs text-center right-[10px] top-[18px] lg:left-[10px] lg:top-[10px] w-[225px] rounded-[10px]",
             {
               hidden: !infoIsVisible,
             }

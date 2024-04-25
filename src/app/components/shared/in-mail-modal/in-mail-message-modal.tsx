@@ -6,7 +6,7 @@ import {
   forwardRef,
   useCallback,
 } from "react";
-import InMailCollaborateAgentModal from "@/components/agent/dashboard/in-mail/in-mail-collaborate-agent-modal";
+import CollaborateAgentModal from "@/components/shared/collaborate-agent-modal";
 import useModal from "@/hooks/use-modal";
 
 type Props = {
@@ -64,7 +64,7 @@ export default forwardRef<HTMLDialogElement, Props>(function InMailMessageModal(
         </button>
       </form>
 
-      <InMailCollaborateAgentModal
+      <CollaborateAgentModal
         ref={modalRef}
         onClose={closeModal}
         onCloseSelf={closeSelf}

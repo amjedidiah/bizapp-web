@@ -3,7 +3,7 @@
 import { BACaretDown } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { Dispatch, SetStateAction, memo, useCallback } from "react";
-import Status from "./status";
+import Status from "@/components/shared/status";
 import { CustomerStatus } from "@/lib/constants";
 
 type Props = {

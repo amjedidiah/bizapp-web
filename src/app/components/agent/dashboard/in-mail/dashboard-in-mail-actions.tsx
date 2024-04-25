@@ -2,12 +2,12 @@
 
 import Button from "@/components/shared/button";
 import Link from "next/link";
-import InMailMessageModal from "@/components/agent/dashboard/in-mail/in-mail-message-modal";
+import InMailMessageModal from "@/components/shared/in-mail-modal/in-mail-message-modal";
 import { memo } from "react";
 import useModal from "@/hooks/use-modal";
 import { AgentLinks } from "@/lib/constants";
 
-function InMailActions() {
+function DashboardInMailActions() {
   const { modalRef, openModal, closeSelf } = useModal();
 
   return (
@@ -25,4 +25,4 @@ function InMailActions() {
   );
 }
 
-export default memo(InMailActions);
+export default memo(DashboardInMailActions);

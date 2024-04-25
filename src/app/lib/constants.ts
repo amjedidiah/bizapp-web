@@ -58,12 +58,14 @@ export const AgentLinks = {
   ...DEFAULT_LINKS,
 };
 
-enum SubLinks {
+export enum ChatLinks {
   Collaborations = "Collaborations",
   Customers = "Customers",
+  Escalations = "Escalations",
 }
 
 export const AgentLinksChat = {
-  [SubLinks.Collaborations]: "/agent/chat/collaborations",
-  [SubLinks.Customers]: "/agent/chat/customers",
+  [ChatLinks.Collaborations]: "/agent/chat/collaborations",
+  [ChatLinks.Customers]: "/agent/chat/customers",
+  [ChatLinks.Escalations]: "/agent/chat/escalations",
 };

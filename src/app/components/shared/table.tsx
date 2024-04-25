@@ -169,7 +169,7 @@ Table.Rows = function TableRows({
         className={cellContainerClassName}
         labelClassName={cellLabelClassName}
         value={value}
-        key={0}
+        key={i}
         index={key}
         item={item}
       />

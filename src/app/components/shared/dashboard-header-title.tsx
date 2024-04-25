@@ -1,7 +1,7 @@
 "use client";
 import useHeaderTitle from "@/hooks/use-navbar-title";
 import { memo, useCallback } from "react";
-import ShouldRender from "./should-render";
+import ShouldRender from "@/components/shared/should-render";
 import { BABackArrow } from "@/lib/icons";
 import { useRouter } from "next/navigation";
 import { AgentLinks } from "@/lib/constants";

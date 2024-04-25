@@ -11,6 +11,7 @@ export default function useHeaderTitle() {
       return "Pending Requests";
     if (pathname.includes(AgentLinks.Customers.pathname))
       return `Customer${!params?.id ? "s" : ""}`;
+    if (pathname.includes(AgentLinks.Chat.pathname)) return "Chat";
 
     return "Dashboard";
   }, [params?.id, pathname]);

@@ -1,6 +1,6 @@
 import DashboardTitle from "@/components/shared/dashboard-title";
 import InMailMessagesInfo from "@/components/agent/dashboard/in-mail/in-mail-messages-info";
-import InMailActions from "@/components/agent/dashboard/in-mail/in-mail-actions";
+import DashboardInMailActions from "@/components/agent/dashboard/in-mail/dashboard-in-mail-actions";
 
 const inMails = [
   {
@@ -39,7 +39,7 @@ export default function InMailMessages() {
             <InMailMessagesInfo />
           </div>
         </div>
-        <InMailActions />
+        <DashboardInMailActions />
       </div>
       <div className="flex flex-col py-[10px] px-[14px] gap-5 rounded-[6px] shadow-in-mails bg-yellow-300">
         {inMails.map(({ id, from, title, body, timeAgo }) => (

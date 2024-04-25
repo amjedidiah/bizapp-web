@@ -13,7 +13,7 @@ type Props = {
 } & HTMLAttributes<HTMLDialogElement>;
 
 export default forwardRef<HTMLDialogElement, Props>(
-  function InMailCollaborateNotesModal({ onClose, onCloseSelf }, ref) {
+  function CollaborateNotesModal({ onClose, onCloseSelf }, ref) {
     const handleFormSubmit: FormEventHandler<HTMLFormElement> = useCallback(
       (e) => {
         e.preventDefault();

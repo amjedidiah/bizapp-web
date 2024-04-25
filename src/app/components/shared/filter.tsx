@@ -36,7 +36,7 @@ function Filter({
         onToggleState={handleFilter}
         isHidden={isDropdownHidden}
         states={states}
-        className="top-10"
+        className="top-10 z-[1]"
       />
     </div>
   );

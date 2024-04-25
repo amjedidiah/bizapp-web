@@ -7,7 +7,7 @@ import {
   forwardRef,
   useCallback,
 } from "react";
-import InMailCollaborateNotesModal from "@/components/agent/dashboard/in-mail/in-mail-collaborate-notes-modal";
+import CollaborateNotesModal from "@/components/shared/collaborate-notes-modal";
 import useModal from "@/hooks/use-modal";
 
 type Props = {
@@ -37,7 +37,7 @@ const agents = [
 ];
 
 export default forwardRef<HTMLDialogElement, Props>(
-  function InMailCollaborateAgentModal({ onCloseSelf, onClose }, ref) {
+  function CollaborateAgentModal({ onCloseSelf, onClose }, ref) {
     const { modalRef, openModal, closeSelf, closeModal } = useModal();
     const handleCollaborate = useCallback(() => {
       onClose();
@@ -98,7 +98,7 @@ export default forwardRef<HTMLDialogElement, Props>(
             </div>
           </div>
         </dialog>
-        <InMailCollaborateNotesModal
+        <CollaborateNotesModal
           ref={modalRef}
           onClose={closeModal}
           onCloseSelf={closeSelf}
