@@ -32,6 +32,7 @@ It also uses Tailwind CSS for styling.
 - Improved `Table` component
 - Sticky Customer card on desktop
 - OG Images
+- Monorepo for the dashboard and mobile app
 
 > Node version used: 18.19.1 (npm v10.2.4)
 
