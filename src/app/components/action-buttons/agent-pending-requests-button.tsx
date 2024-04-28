@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { memo, useCallback } from "react";
 
-function PendingRequestsButton({ id, status }: Record<string, string>) {
+function AgentPendingRequestsButton({ id, status }: Record<string, string>) {
   const router = useRouter();
   const handleClick = useCallback(
     () => router.push(`${AgentLinksChat.Customers}/${id}`),
@@ -29,4 +29,4 @@ function PendingRequestsButton({ id, status }: Record<string, string>) {
   );
 }
 
-export default memo(PendingRequestsButton);
+export default memo(AgentPendingRequestsButton);

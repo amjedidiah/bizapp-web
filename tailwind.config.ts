@@ -57,6 +57,7 @@ const config: Config = {
           DEFAULT: "#4CA90C",
           100: "#DEEDE5",
           200: "#56C568",
+          300: "#27AE60",
         },
         yellow: {
           DEFAULT: "#FCE28C",
@@ -65,6 +66,7 @@ const config: Config = {
           300: "#FFF5d4",
           400: "#FFC400",
           500: "#F2E0A5",
+          600: "#FAC515",
         },
         black: {
           DEFAULT: "#000000",

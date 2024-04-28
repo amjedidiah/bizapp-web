@@ -84,6 +84,8 @@ export enum ChatLinks {
   Collaborations = "Collaborations",
   Customers = "Customers",
   Escalations = "Escalations",
+  InMail = "in-Mail",
+  EscalatedCases = "Escalated cases",
 }
 
 export const AgentLinksChat = {
@@ -151,4 +153,22 @@ export const SupervisorLinks = {
     title: Links.Messages,
   },
   ...getDefaultLinks(Role.Supervisor),
+};
+
+export const SupervisorLinksChat = {
+  [ChatLinks.Customers]: "/supervisor/messages/customers",
+  [ChatLinks.InMail]: "/supervisor/messages/in-mail",
+  [ChatLinks.Escalations]: "/supervisor/messages/escalated-cases",
+};
+
+enum CasesLinks {
+  Pending = "Pending",
+  Attending = "Attending",
+  Closed = "Closed",
+}
+
+export const SupervisorLinksCases = {
+  [CasesLinks.Pending]: "/supervisor/cases/pending",
+  [CasesLinks.Attending]: "/supervisor/cases/attending",
+  [CasesLinks.Closed]: "/supervisor/cases/closed",
 };

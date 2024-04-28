@@ -1,6 +1,6 @@
 "use client";
 
-import { AgentLinksChat, ChatLinks } from "@/lib/constants";
+import { AgentLinksChat } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -18,8 +18,7 @@ type Props = {
 function ChatListItem({ id, name, excerpt, time, count }: Props) {
   const params = useParams();
   const [chatType, chatId] = params.slug as string[];
-  const chatTypeKey = (chatType.at(0)?.toUpperCase() +
-    chatType.slice(1)) as ChatLinks;
+  const chatTypeKey = chatType.at(0)?.toUpperCase() + chatType.slice(1);
   const ref = useRef<HTMLAnchorElement>(null);
   const isActive = chatId === id;
 
@@ -38,7 +37,13 @@ function ChatListItem({ id, name, excerpt, time, count }: Props) {
   }, [isActive]);
 
   return (
-    <Link href={`${AgentLinksChat[chatTypeKey]}/${id}`} ref={ref} id={chatId}>
+    <Link
+      href={`${
+        AgentLinksChat[chatTypeKey as keyof typeof AgentLinksChat]
+      }/${id}`}
+      ref={ref}
+      id={chatId}
+    >
       <div
         className={cn(
           "grid grid-cols-[1fr,auto] mobile:grid-cols-[55px,1fr,auto] justify-between py-1 px-[6px] rounded-[5px] gap-[10px]",
