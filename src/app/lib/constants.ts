@@ -17,14 +17,38 @@ export enum Links {
   Templates = "Templates",
   Settings = "Settings",
   Logout = "Logout",
+  Agents = "Agents",
+  Cases = "Cases",
+  Messages = "Messages",
 }
 
-const DEFAULT_LINKS = {
-  [Links.Logout]: {
-    name: Links.Logout,
-    pathname: "/",
-    title: Links.Logout,
-  },
+export enum Role {
+  Agent = "agent",
+  Supervisor = "supervisor",
+  Admin = "admin",
+  Customer = "customer",
+}
+
+const getDefaultLinks = (role: Role) => {
+  const DEFAULT_LINKS = {
+    [Links.Templates]: {
+      name: Links.Templates,
+      pathname: `/${role}/templates`,
+      title: Links.Templates,
+    },
+    [Links.Settings]: {
+      name: Links.Settings,
+      pathname: `/${role}/settings`,
+      title: Links.Settings,
+    },
+    [Links.Logout]: {
+      name: Links.Logout,
+      pathname: "/",
+      title: Links.Logout,
+    },
+  };
+
+  return DEFAULT_LINKS;
 };
 
 export const AgentLinks = {
@@ -53,17 +77,7 @@ export const AgentLinks = {
     pathname: "/agent/resolved",
     title: `${Links.Resolved} Cases`,
   },
-  [Links.Templates]: {
-    name: Links.Templates,
-    pathname: "/agent/templates",
-    title: Links.Templates,
-  },
-  [Links.Settings]: {
-    name: Links.Settings,
-    pathname: "/agent/settings",
-    title: Links.Settings,
-  },
-  ...DEFAULT_LINKS,
+  ...getDefaultLinks(Role.Agent),
 };
 
 export enum ChatLinks {
@@ -108,4 +122,33 @@ export const AgentLinksSettingsSecurity = {
     name: SettingsSecurityLinks.AccountPassword,
     href: "/agent/settings/security/account-password",
   },
+};
+
+export const SupervisorLinks = {
+  [Links.Dashboard]: {
+    name: Links.Dashboard,
+    pathname: "/supervisor",
+    title: Links.Dashboard,
+  },
+  [Links.Agents]: {
+    name: Links.Agents,
+    pathname: "/supervisor/agents",
+    title: Links.Agents,
+  },
+  [Links.Customers]: {
+    name: Links.Customers,
+    pathname: "/supervisor/customers",
+    title: Links.Customers,
+  },
+  [Links.Cases]: {
+    name: Links.Cases,
+    pathname: "/supervisor/cases",
+    title: Links.Cases,
+  },
+  [Links.Chat]: {
+    name: Links.Messages,
+    pathname: "/supervisor/messages",
+    title: Links.Messages,
+  },
+  ...getDefaultLinks(Role.Supervisor),
 };

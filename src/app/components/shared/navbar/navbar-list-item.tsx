@@ -1,6 +1,8 @@
 import { useNavbarContext } from "@/context/navbar.context";
 import { Links } from "@/lib/constants";
 import {
+  BAAgents,
+  BACases,
   BAChat,
   BACustomers,
   BADashboard,
@@ -31,11 +33,13 @@ function NavbarListItem({ name, pathname, isActive = false }: Props) {
         [Links.Dashboard]: BADashboard,
         [Links.Pending]: BAPending,
         [Links.Customers]: BACustomers,
-        [Links.Chat]: BAChat,
+        [Links.Logout]: BALogout,
         [Links.Resolved]: BAResolved,
         [Links.Templates]: BATemplates,
         [Links.Settings]: BASettings,
-      }[name] || BALogout),
+        [Links.Agents]: BAAgents,
+        [Links.Cases]: BACases,
+      }[name] || BAChat),
     [name]
   );
   const isOutlier =
