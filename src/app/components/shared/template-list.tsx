@@ -3,11 +3,12 @@ import { Role } from "@/lib/constants";
 import { BACopy, BADoc, BATrash } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
-import { MouseEventHandler, memo, useEffect, useMemo } from "react";
+import { useParams } from "next/navigation";
+import { MouseEventHandler, memo, useEffect } from "react";
 import ShouldRender from "@/components/shared/should-render";
 import useModal from "@/hooks/use-modal";
 import TemplateDeleteModal from "@/components/shared/template-delete-modal";
+import useRootPath from "@/hooks/use-root-path";
 
 const template = {
   question: "How to deposit in your wallet",
@@ -21,8 +22,8 @@ const templates = Array(8)
 
 function TemplateList({ role = Role.Agent }) {
   const params = useParams();
-  const pathname = usePathname();
   const { closeSelf, modalRef, openModal } = useModal();
+  const rootPath = useRootPath();
 
   useEffect(() => {
     const modal = modalRef?.current;
@@ -38,16 +39,6 @@ function TemplateList({ role = Role.Agent }) {
 
     openModal();
   };
-  const templateHref = useMemo(() => {
-    let rootPath = pathname;
-    if (params.slug?.length) {
-      const pathe = rootPath.split("/");
-      pathe.pop();
-
-      rootPath = pathe.join("/");
-    }
-    return rootPath;
-  }, [params.slug?.length, pathname]);
 
   return templates.map(({ id, question, answer }) => (
     <>
@@ -56,7 +47,7 @@ function TemplateList({ role = Role.Agent }) {
           "bg-yellow-300 rounded": params.slug?.[0] == id,
         })}
         key={id}
-        href={`${templateHref}/${id}`}
+        href={`${rootPath}/${id}`}
       >
         <div className="flex gap-[10px]">
           <span className="w-[38px] flex-shrink-0 h-[38px] flex items-center justify-center rounded-full bg-[#CFE1F9]">

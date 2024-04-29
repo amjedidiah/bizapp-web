@@ -1,11 +1,11 @@
 "use client";
 
-import { AgentLinksChat } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import Avatar from "@/components/shared/avatar";
 import { memo, useEffect, useRef } from "react";
+import useRootPath from "@/hooks/use-root-path";
 
 type Props = {
   id: string;
@@ -17,10 +17,10 @@ type Props = {
 
 function ChatListItem({ id, name, excerpt, time, count }: Props) {
   const params = useParams();
-  const [chatType, chatId] = params.slug as string[];
-  const chatTypeKey = chatType.at(0)?.toUpperCase() + chatType.slice(1);
+  const [_, chatId] = params.slug as string[];
   const ref = useRef<HTMLAnchorElement>(null);
   const isActive = chatId === id;
+  const rootPath = useRootPath(-4);
 
   useEffect(() => {
     const link = ref?.current;
@@ -37,13 +37,7 @@ function ChatListItem({ id, name, excerpt, time, count }: Props) {
   }, [isActive]);
 
   return (
-    <Link
-      href={`${
-        AgentLinksChat[chatTypeKey as keyof typeof AgentLinksChat]
-      }/${id}`}
-      ref={ref}
-      id={chatId}
-    >
+    <Link href={`${rootPath}/${id}`} ref={ref} id={chatId}>
       <div
         className={cn(
           "grid grid-cols-[1fr,auto] mobile:grid-cols-[55px,1fr,auto] justify-between py-1 px-[6px] rounded-[5px] gap-[10px]",

@@ -95,9 +95,9 @@ export enum ChatLinks {
 }
 
 export const AgentLinksChat = {
-  [ChatLinks.Collaborations]: "/agent/chat/collaborations",
-  [ChatLinks.Customers]: "/agent/chat/customers",
-  [ChatLinks.Escalations]: "/agent/chat/escalations",
+  [ChatLinks.Collaborations]: "/collaborations",
+  [ChatLinks.Customers]: "/customers",
+  [ChatLinks.Escalations]: "/escalations",
 };
 
 export enum SettingsLinks {
@@ -121,14 +121,14 @@ export enum SettingsSecurityLinks {
   AccountPassword = "Account Password",
 }
 
-export const AgentLinksSettingsSecurity = {
+export const SettingsSecurityLinksObject = {
   [SettingsSecurityLinks.EmailPreference]: {
     name: SettingsSecurityLinks.EmailPreference,
-    href: "/agent/settings/security/email-preference",
+    href: "/email-preference",
   },
   [SettingsSecurityLinks.AccountPassword]: {
     name: SettingsSecurityLinks.AccountPassword,
-    href: "/agent/settings/security/account-password",
+    href: "/account-password",
   },
 };
 
@@ -177,4 +177,15 @@ export const SupervisorLinksCases = {
   [CasesLinks.Pending]: "/supervisor/cases/pending",
   [CasesLinks.Attending]: "/supervisor/cases/attending",
   [CasesLinks.Closed]: "/supervisor/cases/closed",
+};
+
+export const SupervisorLinksSettings = {
+  [SettingsLinks.Account]: {
+    name: SettingsLinks.Account,
+    href: "/supervisor/settings/account",
+  },
+  [SettingsLinks.Security]: {
+    name: SettingsLinks.Security,
+    href: "/supervisor/settings/security",
+  },
 };

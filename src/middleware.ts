@@ -21,4 +21,16 @@ export function middleware(request: NextRequest) {
     url.pathname = "/agent/settings/security/email-preference";
     return NextResponse.redirect(url);
   }
+
+  if (pathname === "/supervisor/settings") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/supervisor/settings/account";
+    return NextResponse.redirect(url);
+  }
+
+  if (pathname === "/supervisor/settings/security") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/supervisor/settings/security/email-preference";
+    return NextResponse.redirect(url);
+  }
 }

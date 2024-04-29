@@ -1,13 +1,13 @@
 "use client";
 import BodyNavigation from "@/components/shared/body-navigation";
-import { AgentLinksSettingsSecurity } from "@/lib/constants";
+import { SettingsSecurityLinksObject } from "@/lib/constants";
 import EmailPreferenceForm from "@/components/shared/email-preference-form";
 import { memo } from "react";
 import AccountPasswordForm from "@/components/shared/account-password-form";
 import { usePathname } from "next/navigation";
 import ShouldRender from "@/components/shared/should-render";
 
-const routes = Object.values(AgentLinksSettingsSecurity);
+const routes = Object.values(SettingsSecurityLinksObject);
 
 function SettingsBodySecurity() {
   const pathname = usePathname();
@@ -23,7 +23,7 @@ function SettingsBodySecurity() {
           Customise the look of your workspace. Feeling adventurous?
         </p>
       </div>
-      <BodyNavigation routes={routes} level={1} />
+      <BodyNavigation routes={routes} pathTypeLevel={1} level={4} />
 
       <ShouldRender condition={!showPasswordForm}>
         <EmailPreferenceForm />

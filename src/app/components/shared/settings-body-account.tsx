@@ -2,16 +2,19 @@ import Avatar from "@/components/shared/avatar";
 import { BAPencil } from "@/lib/icons";
 import ShouldRender from "@/components/shared/should-render";
 
-const details = [
-  { label: "full name", value: "Muhammad Ummi" },
-  { label: "Department", value: "General services" },
-  { label: "Role", value: "Customer care Rep." },
-  { label: "name", value: "Muhammad Ummi", canEdit: true },
-  { label: "email", value: "agentummi@bizapp.ng", canEdit: true },
-  { label: "Phone Number", value: "+23457694038534", canEdit: true },
-];
+type Props = {
+  details: Array<{
+    label: string;
+    value: string;
+    canEdit?: boolean;
+  }>;
+  image?: string;
+};
 
-export default function SettingsBodyAccount() {
+export default function SettingsBodyAccount({
+  details,
+  image = "/images/user-female.png",
+}: Props) {
   return (
     <div className="flex-1 flex flex-col lg:overflow-hidden gap-6 lg:gap-8 pt-2">
       <div className="flex flex-col gap-1 py-[10px]">
@@ -26,10 +29,7 @@ export default function SettingsBodyAccount() {
         <div className="flex flex-col gap-2">
           <p className="text-gray-800 text-sm font-bold">Profile Photo</p>
           <div className="flex items-center justify-between max-mobile:flex-wrap gap-4 mb-3">
-            <Avatar
-              src="/images/user-female.png"
-              className="lg:w-[125px] lg:h-[125px]"
-            />
+            <Avatar src={image} className="lg:w-[125px] lg:h-[125px]" />
             <div className="flex items-center gap-[10px]">
               <button className="py-2 lg:py-[10px] px-3 rounded-[5px] text-main-blue text-xs lg:text-sm font-medium leading-[18px]">
                 Remove Photo

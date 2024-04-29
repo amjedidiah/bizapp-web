@@ -4,12 +4,14 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import ShouldRender from "@/components/shared/should-render";
 import { memo } from "react";
+import useRootPath from "@/hooks/use-root-path";
 
 export type BodyNavigationItemProps = {
   href: string;
   name: string;
   count?: number;
   isActive: boolean;
+  level?: number;
 };
 
 function BodyNavigationItem({
@@ -17,10 +19,13 @@ function BodyNavigationItem({
   name,
   count,
   isActive,
+  level = 4,
 }: BodyNavigationItemProps) {
+  const rootPath = useRootPath(level * -1);
+
   return (
     <Link
-      href={href}
+      href={`${rootPath}${href}`}
       className={cn(
         "relative mx-1 py-2 laptop:py-[14px] px-[22px] laptop:px-[26px] capitalize text-black font-semibold max-laptop:text-sm leading-[18px]",
         {
