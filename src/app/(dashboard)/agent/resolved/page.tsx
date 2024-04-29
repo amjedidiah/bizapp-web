@@ -1,5 +1,5 @@
 import ClosedCasesTable from "@/components/agent/closed-cases-table";
-import SearchForm from "@/components/agent/search-form";
+import SearchForm from "@/components/shared/search-form";
 import DashboardMainBody from "@/components/shared/dashboard-main-body";
 import Filter from "@/components/shared/filter";
 

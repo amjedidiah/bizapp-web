@@ -4,7 +4,7 @@ import Filter from "@/components/shared/filter";
 import { CustomerStatus, Role, SupervisorLinksCases } from "@/lib/constants";
 import supervisorPendingRequestsButton from "@/components/action-buttons/supervisor-pending-requests-button";
 import ShouldRender from "@/components/shared/should-render";
-import SearchForm from "@/components/agent/search-form";
+import SearchForm from "@/components/shared/search-form";
 import Link from "next/link";
 
 const pendingRequests = [

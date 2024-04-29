@@ -3,7 +3,7 @@ import Button from "@/components/shared/button";
 import Filter from "@/components/shared/filter";
 import Link from "next/link";
 import { AgentLinks } from "@/lib/constants";
-import SearchForm from "@/components/agent/search-form";
+import SearchForm from "@/components/shared/search-form";
 import ClosedCasesTable from "@/components/agent/closed-cases-table";
 
 export default function ClosedCases() {

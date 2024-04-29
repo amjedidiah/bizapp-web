@@ -1,6 +1,6 @@
 import Table from "@/components/shared/table";
 import AgentsTableButton from "@/components/action-buttons/agents-table-button";
-import SearchForm from "@/components/agent/search-form";
+import SearchForm from "@/components/shared/search-form";
 import Filter from "@/components/shared/filter";
 import { Fragment } from "react";
 import { AgentStatus } from "@/lib/constants";

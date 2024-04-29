@@ -1,4 +1,4 @@
-import SearchForm from "@/components/agent/search-form";
+import SearchForm from "@/components/shared/search-form";
 import ChatBody from "@/components/shared/chat/chat-body";
 import ChatInMailAction from "@/components/shared/chat/chat-in-mail-action";
 import ChatWrapper from "@/components/shared/chat/chat-wrapper";

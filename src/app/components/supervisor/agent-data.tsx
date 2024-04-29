@@ -1,5 +1,5 @@
 "use client";
-import { CustomerStatus } from "@/lib/constants";
+import { AgentStatus, CustomerStatus } from "@/lib/constants";
 import Table from "@/components/shared/table";
 import CasesButton from "@/components/action-buttons/cases-button";
 import AgentDataNav from "./agent-data-nav";
@@ -47,11 +47,27 @@ const cases = [
     status: CustomerStatus.Closed,
     location: "Wudil, Kano",
   },
-];
+] as Array<{
+  id: string;
+  customer: string;
+  issue: string;
+  department: string;
+  status: CustomerStatus | AgentStatus;
+  location: string;
+}>;
 
 export default function AgentData() {
   const [sliceCount, setSliceCount] = useState(0);
-  const renderedCases = useMemo(() => cases.slice(sliceCount), [sliceCount]);
+  const renderedCases = useMemo(
+    () =>
+      cases.slice(sliceCount).map((item) => {
+        item.status =
+          sliceCount > 0 ? AgentStatus.Active : CustomerStatus.Closed;
+
+        return item;
+      }),
+    [sliceCount]
+  );
 
   return (
     <div className="flex flex-col gap-6">

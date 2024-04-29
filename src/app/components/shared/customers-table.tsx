@@ -1,6 +1,6 @@
 import Table from "@/components/shared/table";
 import customersTableButton from "@/components/action-buttons/customers-table-button";
-import SearchForm from "@/components/agent/search-form";
+import SearchForm from "@/components/shared/search-form";
 import Filter from "@/components/shared/filter";
 import { Fragment } from "react";
 

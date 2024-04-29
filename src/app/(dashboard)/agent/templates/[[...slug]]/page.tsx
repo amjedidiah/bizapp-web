@@ -1,5 +1,5 @@
 import AgentTemplateList from "@/components/agent/agent-template-list";
-import SearchForm from "@/components/agent/search-form";
+import SearchForm from "@/components/shared/search-form";
 import TemplateBody from "@/components/agent/template-body";
 import DashboardMainBody from "@/components/shared/dashboard-main-body";
 

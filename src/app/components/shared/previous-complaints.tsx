@@ -1,4 +1,4 @@
-import SearchForm from "@/components/agent/search-form";
+import SearchForm from "@/components/shared/search-form";
 import Complaints from "@/components/shared/complaints";
 
 export default function PreviousComplaints() {
