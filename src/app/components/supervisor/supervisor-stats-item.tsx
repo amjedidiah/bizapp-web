@@ -39,7 +39,7 @@ export default function SupervisorStatsItem({
     <div
       key={id}
       className={cn("border flex flex-col gap-3 p-2 rounded-lg", {
-        "border-yellow-600": id === "1",
+        "border-yellow-400": id === "1",
         "border-blue": id === "2",
         "border-red-100": id === "3",
         "border-purple": id === "4",
@@ -49,7 +49,7 @@ export default function SupervisorStatsItem({
       <p className="ml-auto">
         <span
           className={cn({
-            "[&_path]:fill-yellow-600": id === "1",
+            "[&_path]:fill-yellow-400": id === "1",
             "[&_path]:fill-blue": id === "2",
             "[&_path]:fill-red-100": id === "3",
             "[&_path]:fill-purple": id === "4",
@@ -64,7 +64,7 @@ export default function SupervisorStatsItem({
           className={cn(
             "flex items-center py-[2px] px-1 gap-[1px] rounded-[20px] text-white text-[8px] font-semibold absolute left-0 -top-6",
             {
-              "bg-yellow-600": id === "1",
+              "bg-yellow-400": id === "1",
               "bg-blue": id === "2",
               "bg-red-100": id === "3",
               "bg-purple": id === "4",
@@ -93,7 +93,7 @@ export default function SupervisorStatsItem({
           <ShouldRender condition={id !== "5"}>view all</ShouldRender>
           <span
             className={cn({
-              "[&_path]:stroke-yellow-600": id === "1",
+              "[&_path]:stroke-yellow-400": id === "1",
               "[&_path]:stroke-blue": id === "2",
               "[&_path]:stroke-red-100": id === "3",
               "[&_rect]:stroke-purple": id === "4",

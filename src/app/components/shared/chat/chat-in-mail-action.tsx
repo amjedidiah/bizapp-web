@@ -2,8 +2,9 @@
 import useModal from "@/hooks/use-modal";
 import { BAMessage } from "@/lib/icons";
 import InMailMessageModal from "@/components/shared/in-mail-modal/in-mail-message-modal";
+import { memo } from "react";
 
-export default function ChatInMailAction() {
+function ChatInMailAction() {
   const { modalRef, openModal, closeSelf } = useModal();
 
   return (
@@ -23,3 +24,5 @@ export default function ChatInMailAction() {
     </>
   );
 }
+
+export default memo(ChatInMailAction);

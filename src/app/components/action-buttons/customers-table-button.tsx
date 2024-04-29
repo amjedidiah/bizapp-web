@@ -1,13 +1,12 @@
 "use client";
 
-import { AgentLinks } from "@/lib/constants";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { memo } from "react";
 
 function CustomersTableButton({ id }: Record<string, string>) {
   const router = useRouter();
-  const handleClick = () =>
-    router.push(`${AgentLinks.Customers.pathname}/${id}`);
+  const pathname = usePathname();
+  const handleClick = () => router.push(`${pathname}/${id}`);
 
   return (
     <button

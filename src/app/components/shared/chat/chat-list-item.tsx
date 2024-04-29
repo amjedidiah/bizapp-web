@@ -59,7 +59,7 @@ function ChatListItem({ id, name, excerpt, time, count }: Props) {
         </div>
         <div className="flex flex-col items-end text-main-blue text-xs min-w-fit max-sm:row-start-1 max-sm:col-start-2">
           <p className="font-medium lg:leading-6">{time}</p>
-          <span className="rounded-full w-[22px] h-[22px] flex items-center justify-center font-inter font-medium lg:leading-6 bg-yellow-400">
+          <span className="rounded-full w-[22px] h-[22px] flex items-center justify-center font-inter font-medium lg:leading-6 bg-yellow-600">
             {count}
           </span>
         </div>

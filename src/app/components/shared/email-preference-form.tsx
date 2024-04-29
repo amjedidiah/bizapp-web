@@ -1,8 +1,9 @@
 "use client";
 import useSaveSettings from "@/hooks/use-save-settings";
 import { cn } from "@/lib/utils";
+import { memo } from "react";
 
-export default function EmailPreferenceForm() {
+function EmailPreferenceForm() {
   const { submitText, loadStep, handleSubmit, isAnimating } = useSaveSettings();
 
   return (
@@ -47,7 +48,7 @@ export default function EmailPreferenceForm() {
       <div className="mt-6 flex flex-col items-center gap-[10px]">
         <button
           className={cn(
-            "relative w-full max-w-[314px] rounded-lg p-2 lg:p-[10px] border border-black bg-yellow-200 bg-opacity-60 shadow-status text-main-blue font-medium after:absolute after:left-0 after:top-0 after:bottom-0 after:bg-black after:bg-opacity-20",
+            "relative w-full max-w-[314px] rounded-lg p-2 lg:p-[10px] border border-black bg-yellow-200 bg-opacity-60 shadow-template-copy text-main-blue font-medium after:absolute after:left-0 after:top-0 after:bottom-0 after:bg-black after:bg-opacity-20",
             {
               "after:w-0": isAnimating && loadStep % 4 === 1,
               "after:w-1/6": isAnimating && loadStep % 4 === 2,
@@ -66,3 +67,5 @@ export default function EmailPreferenceForm() {
     </form>
   );
 }
+
+export default memo(EmailPreferenceForm);

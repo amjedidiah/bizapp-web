@@ -2,8 +2,8 @@
 import { AgentStatus, CustomerStatus } from "@/lib/constants";
 import Table from "@/components/shared/table";
 import CasesButton from "@/components/action-buttons/cases-button";
-import AgentDataNav from "./agent-data-nav";
-import { useMemo, useState } from "react";
+import AgentDataNav from "@/components/supervisor/agent-data-nav";
+import { memo, useMemo, useState } from "react";
 
 const columnNames = [
   "customer name",
@@ -56,7 +56,7 @@ const cases = [
   location: string;
 }>;
 
-export default function AgentData() {
+function AgentData() {
   const [sliceCount, setSliceCount] = useState(0);
   const renderedCases = useMemo(
     () =>
@@ -70,8 +70,8 @@ export default function AgentData() {
   );
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-6 lg:gap-12">
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-6 lg:gap-8">
         <p className="min-w-fit text-primary text-opacity-80 font-inter text-sm font-medium leading-6 tracking-[0.4px] capitalize relative after:absolute after:h-[2px] after:-bottom-3 after:left-0 after:w-[133px] after:bg-yellow-100">
           Agent Data
         </p>
@@ -94,3 +94,5 @@ export default function AgentData() {
     </div>
   );
 }
+
+export default memo(AgentData);

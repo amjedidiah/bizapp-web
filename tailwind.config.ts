@@ -64,9 +64,9 @@ const config: Config = {
           100: "#EBB22F",
           200: "#FFCB21",
           300: "#FFF5d4",
-          400: "#FFC400",
+          400: "#FAC515",
+          600: "#FFC400",
           500: "#F2E0A5",
-          600: "#FAC515",
         },
         black: {
           DEFAULT: "#000000",

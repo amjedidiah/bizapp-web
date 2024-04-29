@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import {
   MouseEventHandler,
+  memo,
   useCallback,
   useEffect,
   useMemo,
@@ -20,7 +21,7 @@ type AgentDataNavProps = {
   onSetSliceCount: (count: number) => void;
 };
 
-export default function AgentDataNav({ onSetSliceCount }: AgentDataNavProps) {
+function AgentDataNav({ onSetSliceCount }: AgentDataNavProps) {
   const [activeNav, setActiveNav] = useState(Nav.Closed);
   const navItems = useMemo(() => Object.values(Nav), []);
 
@@ -76,3 +77,5 @@ function AgentDataNavItem({ label, onSetActive, isActive }: Props) {
     </p>
   );
 }
+
+export default memo(AgentDataNav);

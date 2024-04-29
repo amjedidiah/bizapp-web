@@ -1,4 +1,4 @@
-import { AgentLinksChat } from "@/lib/constants";
+import { Role } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +12,9 @@ const userCardDetails = [
 ];
 const id = 1;
 
-export default function CustomerCard() {
+export default function CustomerCard({ role = Role.Agent }) {
+  const messageTerm = role === Role.Agent ? "chat" : "messages";
+
   return (
     <div className="flex flex-col p-5 laptop:pt-[60px] sm:max-laptop:flex-row gap-6 rounded-[6px] bg-white shadow-customer h-fit">
       <div className="flex items-center flex-col gap-4">
@@ -50,7 +52,7 @@ export default function CustomerCard() {
           ))}
         </div>
         <div className="pt-6 border-t border-primary border-opacity-10 flex laptop:justify-center">
-          <Link href={`${AgentLinksChat.Customers}/${id}`}>
+          <Link href={`/${role}/${messageTerm}/customers/${id}`}>
             <button className="py-2 px-6 mx-auto rounded-[5px] border border-black bg-yellow-200 bg-opacity-60 text-black font-inter font-medium uppercase tracking-[0.46px] text-[15px] leading-[26px]">
               MESSage
             </button>

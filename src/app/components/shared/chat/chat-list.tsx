@@ -4,8 +4,9 @@ import { getChats } from "@/lib/actions";
 import { useParams } from "next/navigation";
 import useSWR from "swr";
 import ChatListItem from "@/components/shared/chat/chat-list-item";
+import { memo } from "react";
 
-export default function ChatList() {
+function ChatList() {
   const params = useParams();
   const [chatType] = params.slug as string[];
   const { data } = useSWR(chatType.toLowerCase() || null, getChats);
@@ -20,3 +21,5 @@ export default function ChatList() {
     </div>
   );
 }
+
+export default memo(ChatList);

@@ -83,7 +83,7 @@ function AccountPasswordForm() {
       <div className="mt-6 flex flex-col items-center gap-[10px]">
         <button
           className={cn(
-            "relative w-full max-w-[314px] rounded-lg p-2 lg:p-[10px] border border-black bg-yellow-200 bg-opacity-60 shadow-status text-main-blue font-medium after:absolute after:left-0 after:top-0 after:bottom-0 after:bg-opacity-20",
+            "relative w-full max-w-[314px] rounded-lg p-2 lg:p-[10px] border border-black bg-yellow-200 bg-opacity-60 shadow-template-copy text-main-blue font-medium after:absolute after:left-0 after:top-0 after:bottom-0 after:bg-opacity-20",
             {
               "after:bg-black": isAnimating,
               "after:w-0": loadStep % 4 === 1,

@@ -74,29 +74,25 @@ const columnNames = [
   "",
 ];
 
-export default function PendingRequests({
-  role = Role.Agent,
-}: {
-  role?: Role;
-}) {
-  const isCustomer = role === Role.Customer;
+export default function PendingRequests({ role = Role.Agent }) {
+  const isAgent = role === Role.Agent;
 
   return (
     <>
-      <ShouldRender condition={isCustomer}>
+      <ShouldRender condition={isAgent}>
         <div className="flex flex-col gap-4 items-end">
           <Filter states={["department", "state"]} />
         </div>
       </ShouldRender>
 
-      <ShouldRender condition={!isCustomer}>
+      <ShouldRender condition={!isAgent}>
         <div className="flex flex-col gap-5">
           <p className="text-main-blue-100 text-lg font-semibold">
             Pending / Attending Cases
           </p>
           <div className="flex max-sm:flex-col gap-4 sm:justify-between sm:items-center">
             <Link
-              className="h-fit w-fit py-[10px] px-[18px] rounded-lg shadow-template-company border border-black bg-yellow-200 bg-opacity-60 text-main-blue font-semibold"
+              className="text-center h-fit w-fit py-[10px] px-[18px] rounded-lg shadow-template-company border border-black bg-yellow-200 bg-opacity-60 text-main-blue font-semibold"
               href={SupervisorLinksCases.Pending}
             >
               View all
@@ -116,9 +112,7 @@ export default function PendingRequests({
         columnNames={columnNames}
         data={pendingRequests}
         ActionComponent={
-          isCustomer
-            ? AgentPendingRequestsButton
-            : supervisorPendingRequestsButton
+          isAgent ? AgentPendingRequestsButton : supervisorPendingRequestsButton
         }
         containerClassName="font-inter text-base lg:grid-cols-7 laptop:grid-cols-[auto,repeat(6,1fr)] max-lg:[&_p:not(:nth-child(7n))]:border-b-0 max-lg:[&_p:nth-child(7n)]:text-right max-lg:[&_p:nth-child(7n)]:mb-3 laptop:px-4"
         headerClassName="p-[14px] laptop:pb-5 text-primary text-opacity-80 tracking-[0.15px] bg-transparent max-lg:hidden"

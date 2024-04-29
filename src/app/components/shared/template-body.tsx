@@ -1,25 +1,38 @@
 "use client";
 import { useParams } from "next/navigation";
 import Empty from "@/components/shared/empty";
-import { BACopy } from "@/lib/icons";
+import { BACopy, BAEdit } from "@/lib/icons";
+import { Role } from "@/lib/constants";
+import ShouldRender from "@/components/shared/should-render";
+import { memo } from "react";
 
-export default function TemplateBody() {
+function TemplateBody({ role = Role.Agent }) {
   const params = useParams();
   if (typeof params.slug !== "string" && !params.slug?.length)
     return <Empty text="Open a template" />;
 
   return (
     <div className="flex-1 flex flex-col lg:overflow-hidden gap-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-4">
         <p className="text-main-blue-100 text-lg lg:text-xl font-semibold lg:leading-8">
           How to deposit to your wallet
         </p>
-        <button className="py-[10px] px-[18px] flex gap-2 rounded-lg border border-slate-900 shadow-template-copy">
-          <span>
-            <BACopy />
-          </span>
-          <span className="text-main-blue">Copy</span>
-        </button>
+        <div className="flex items-center gap-[10px]">
+          <ShouldRender condition={role === Role.Supervisor}>
+            <button className="py-[10px] px-[18px] flex gap-2 rounded-lg border border-slate-900 shadow-template-copy">
+              <span>
+                <BACopy />
+              </span>
+              <span className="text-main-blue">Copy</span>
+            </button>
+          </ShouldRender>
+          <button className="py-[10px] px-[18px] flex gap-2 rounded-lg border border-slate-900 shadow-template-copy">
+            <span>
+              <BAEdit />
+            </span>
+            <span className="text-main-blue">Edit</span>
+          </button>
+        </div>
       </div>
       <div className="flex-1 lg:overflow-y-auto text-main-blue text-opacity-70 lg:pb-5">
         Lorem ipsum dolor sit amet consectetur. Sagittis risus pellentesque
@@ -53,3 +66,5 @@ export default function TemplateBody() {
     </div>
   );
 }
+
+export default memo(TemplateBody);

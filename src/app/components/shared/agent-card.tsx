@@ -4,6 +4,7 @@ import Image from "next/image";
 import Status from "@/components/shared/status";
 import useModal from "@/hooks/use-modal";
 import InMailMessageModal from "@/components/shared/in-mail-modal/in-mail-message-modal";
+import { memo } from "react";
 
 const userCardDetails = [
   { name: "gender", value: "Male" },
@@ -11,7 +12,7 @@ const userCardDetails = [
   { name: "email", value: "yusuf_adamu2024@xyz.com" },
 ];
 
-export default function AgentCard() {
+function AgentCard() {
   const { modalRef, openModal, closeSelf } = useModal();
 
   return (
@@ -69,3 +70,5 @@ export default function AgentCard() {
     </div>
   );
 }
+
+export default memo(AgentCard);

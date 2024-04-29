@@ -5,8 +5,9 @@ import Avatar from "@/components/shared/avatar";
 import ChatBodyMessages from "@/components/shared/chat/chat-body-messages";
 import ChatBodyActions from "@/components/shared/chat/chat-body-actions";
 import { BAEmptyChat } from "@/lib/icons";
+import { memo } from "react";
 
-export default function ChatBody() {
+function ChatBody() {
   const params = useParams();
   if (typeof params.slug !== "string" && params.slug.length < 2)
     return <Empty Icon={BAEmptyChat} text="Open a chat or start a new Chat" />;
@@ -36,3 +37,5 @@ export default function ChatBody() {
     </div>
   );
 }
+
+export default memo(ChatBody);

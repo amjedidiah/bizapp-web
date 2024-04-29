@@ -43,7 +43,7 @@ export default function CustomersTable() {
         columnNames={columnNames}
         data={customers}
         ActionComponent={customersTableButton}
-        containerClassName="laptop:bg-gray-20 rounded-[10px] laptop:grid-cols-[1fr,auto,1fr,1fr,auto,auto,auto] [&_p]:border-gray-5 max-laptop:[&_p:not(:nth-child(7n))]:border-b-0 max-laptop:[&_p:nth-child(7n)]:text-right max-laptop:[&_p:nth-child(7n)]:mb-3"
+        containerClassName="laptop:bg-gray-20 rounded-[10px] laptop:grid-cols-[1fr,auto,1fr,1fr,auto,auto,125px] [&_p]:border-gray-5 max-laptop:[&_p:not(:nth-child(7n))]:border-b-0 max-laptop:[&_p:nth-child(7n)]:text-right max-laptop:[&_p:nth-child(7n)]:mb-3"
         headerClassName="rounded-t-[10px] h-16 px-5 max-laptop:hidden max border-b border-gray-5 bg-gray-20 text-base leading-4"
         cellClassName="bg-slate-100 text-black-200 text-sm leading-5 tracking-[0.28px] p-4 laptop:py-8 laptop:px-5 max-laptop:shadow-md"
         cellLabelClassName="max-laptop:block"

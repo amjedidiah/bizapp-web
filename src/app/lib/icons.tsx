@@ -963,8 +963,8 @@ export const BATendArrow = () => (
     <path
       d="M7.32764 2.25L11.0776 6M11.0776 6L7.32764 9.75M11.0776 6H2.07764"
       stroke="#27AE60"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -1000,6 +1000,46 @@ export const BACustomerFill = () => (
     <path
       d="M23.7217 15.6665C23.7217 16.8622 23.343 17.9694 22.699 18.8748H24.0133C26.4296 18.8748 28.3883 16.9161 28.3883 14.4998C28.3883 12.0836 26.4296 10.1248 24.0133 10.1248H18.18C21.2406 10.1248 23.7217 12.6059 23.7217 15.6665Z"
       fill="#0064E5"
+    />
+  </svg>
+);
+
+export const BAEdit = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="22"
+    viewBox="0 0 24 22"
+    fill="none"
+  >
+    <path
+      d="M12 3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V12"
+      stroke="#FFC400"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M18.375 2.62498C18.7728 2.22716 19.3124 2.00366 19.875 2.00366C20.4376 2.00366 20.9772 2.22716 21.375 2.62498C21.7728 3.02281 21.9963 3.56237 21.9963 4.12498C21.9963 4.68759 21.7728 5.22716 21.375 5.62498L12 15L8 16L9 12L18.375 2.62498Z"
+      stroke="#FFC400"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const BATrash = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="22"
+    viewBox="0 0 24 22"
+    fill="none"
+  >
+    <path
+      d="M7 21C6.45 21 5.97933 20.8043 5.588 20.413C5.19667 20.0217 5.00067 19.5507 5 19V6H4V4H9V3H15V4H20V6H19V19C19 19.55 18.8043 20.021 18.413 20.413C18.0217 20.805 17.5507 21.0007 17 21H7ZM17 6H7V19H17V6ZM9 17H11V8H9V17ZM13 17H15V8H13V17Z"
+      fill="#EB5757"
     />
   </svg>
 );

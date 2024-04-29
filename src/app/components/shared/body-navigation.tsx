@@ -3,13 +3,14 @@ import BodyNavigationItem, {
   BodyNavigationItemProps,
 } from "@/components/shared/body-navigation-item";
 import { useParams } from "next/navigation";
+import { memo } from "react";
 
 type Props = {
   routes: Array<Omit<BodyNavigationItemProps, "isActive">>;
   level?: number;
 };
 
-export default function BodyNavigation({ routes, level = 0 }: Props) {
+function BodyNavigation({ routes, level = 0 }: Props) {
   const params = useParams();
   const pathType = params.slug?.[level];
 
@@ -28,3 +29,5 @@ export default function BodyNavigation({ routes, level = 0 }: Props) {
     </div>
   );
 }
+
+export default memo(BodyNavigation);

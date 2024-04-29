@@ -38,7 +38,7 @@ const agents = [
 ];
 
 export default forwardRef<HTMLDialogElement, Props>(
-  function CollaborateAgentModal({ onCloseSelf, onClose, isAgent }, ref) {
+  function CollaborateAgentModal({ onCloseSelf, onClose, isAgent = true }, ref) {
     const { modalRef, openModal, closeSelf, closeModal } = useModal();
     const handleCollaborate = useCallback(() => {
       onClose();

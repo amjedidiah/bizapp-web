@@ -22,7 +22,7 @@ function OnlineStatusButton() {
 
   return (
     <div
-      className="cursor-pointer py-[10px] px-[18px] max-mobile:p-2 flex gap-2 items-center md:mr-3 rounded-lg border border-black bg-yellow shadow-status max-md:order-2 relative"
+      className="cursor-pointer py-[10px] px-[18px] max-mobile:p-2 flex gap-2 items-center md:mr-3 rounded-lg border border-black bg-yellow shadow-template-copy max-md:order-2 relative"
       onClick={toggleDropdown}
     >
       <span className={cn({ "[&_circle]:fill-red-200": !isOnline })}>
