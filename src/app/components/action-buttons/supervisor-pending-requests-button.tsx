@@ -16,7 +16,7 @@ function SupervisorPendingRequestsButton({
       router.push(`/supervisor/messages${SupervisorLinksChat.Customers}/${id}`),
     [router, id]
   );
-  const canView = status.toLowerCase() === CustomerStatus.Attending;
+  const canView = status.toLowerCase() !== CustomerStatus.Pending;
 
   return (
     <button

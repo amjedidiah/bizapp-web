@@ -1,68 +1,11 @@
 import Table from "@/components/shared/table";
 import AgentPendingRequestsButton from "@/components/action-buttons/agent-pending-requests-button";
 import Filter from "@/components/shared/filter";
-import { CustomerStatus, Role, SupervisorLinksCases } from "@/lib/constants";
+import { Role, SupervisorLinksCases, pendingRequests } from "@/lib/constants";
 import supervisorPendingRequestsButton from "@/components/action-buttons/supervisor-pending-requests-button";
 import ShouldRender from "@/components/shared/should-render";
 import SearchForm from "@/components/shared/search-form";
 import Link from "next/link";
-
-const pendingRequests = [
-  {
-    id: "1",
-    customer: "Tanimu Ali Salisu",
-    issue: "Wallet",
-    department: "finance",
-    status: CustomerStatus.Pending,
-    location: "Wudil, Kano",
-    agent: "----",
-  },
-  {
-    id: "2",
-    customer: "Tanimu Ali Salisu",
-    issue: "Wallet",
-    department: "finance",
-    status: CustomerStatus.Pending,
-    location: "Wudil, Kano",
-    agent: "----",
-  },
-  {
-    id: "3",
-    customer: "Tanimu Ali Salisu",
-    issue: "Wallet",
-    department: "finance",
-    status: CustomerStatus.Pending,
-    location: "Wudil, Kano",
-    agent: "----",
-  },
-  {
-    id: "4",
-    customer: "Tanimu Ali Salisu",
-    issue: "Wallet",
-    department: "finance",
-    status: CustomerStatus.Attending,
-    location: "Wudil, Kano",
-    agent: "Zahra",
-  },
-  {
-    id: "5",
-    customer: "Tanimu Ali Salisu",
-    issue: "Wallet",
-    department: "finance",
-    status: CustomerStatus.Attending,
-    location: "Wudil, Kano",
-    agent: "Christy",
-  },
-  {
-    id: "6",
-    customer: "Tanimu Ali Salisu",
-    issue: "Wallet",
-    department: "finance",
-    status: CustomerStatus.Attending,
-    location: "Wudil, Kano",
-    agent: "Christy",
-  },
-];
 
 const columnNames = [
   "customer name",
@@ -74,18 +17,22 @@ const columnNames = [
   "",
 ];
 
-export default function PendingRequests({ role = Role.Agent }) {
+export default function PendingRequests({
+  role = Role.Agent,
+  requests = pendingRequests,
+  onlyFilter = false,
+}) {
   const isAgent = role === Role.Agent;
 
   return (
     <>
-      <ShouldRender condition={isAgent}>
+      <ShouldRender condition={isAgent || onlyFilter}>
         <div className="flex flex-col gap-4 items-end">
           <Filter states={["department", "state"]} />
         </div>
       </ShouldRender>
 
-      <ShouldRender condition={!isAgent}>
+      <ShouldRender condition={!isAgent && !onlyFilter}>
         <div className="flex flex-col gap-5">
           <p className="text-main-blue-100 text-lg font-semibold">
             Pending / Attending Cases
@@ -110,7 +57,7 @@ export default function PendingRequests({ role = Role.Agent }) {
 
       <Table
         columnNames={columnNames}
-        data={pendingRequests}
+        data={requests}
         ActionComponent={
           isAgent ? AgentPendingRequestsButton : supervisorPendingRequestsButton
         }

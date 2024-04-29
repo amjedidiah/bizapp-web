@@ -167,16 +167,16 @@ export const SupervisorLinksChat = {
   [ChatLinks.EscalatedCases]: "/escalated-cases",
 };
 
-enum CasesLinks {
+export enum CasesLinks {
   Pending = "Pending",
   Attending = "Attending",
   Closed = "Closed",
 }
 
 export const SupervisorLinksCases = {
-  [CasesLinks.Pending]: "/supervisor/cases/pending",
-  [CasesLinks.Attending]: "/supervisor/cases/attending",
-  [CasesLinks.Closed]: "/supervisor/cases/closed",
+  [CasesLinks.Pending]: "/pending",
+  [CasesLinks.Attending]: "/attending",
+  [CasesLinks.Closed]: "/closed",
 };
 
 export const SupervisorLinksSettings = {
@@ -189,3 +189,60 @@ export const SupervisorLinksSettings = {
     href: "/supervisor/settings/security",
   },
 };
+
+export const pendingRequests = [
+  {
+    id: "1",
+    customer: "Tanimu Ali Salisu",
+    issue: "Wallet",
+    department: "finance",
+    status: CustomerStatus.Pending,
+    location: "Wudil, Kano",
+    agent: "----",
+  },
+  {
+    id: "2",
+    customer: "Tanimu Ali Salisu",
+    issue: "Wallet",
+    department: "finance",
+    status: CustomerStatus.Pending,
+    location: "Wudil, Kano",
+    agent: "----",
+  },
+  {
+    id: "3",
+    customer: "Tanimu Ali Salisu",
+    issue: "Wallet",
+    department: "finance",
+    status: CustomerStatus.Pending,
+    location: "Wudil, Kano",
+    agent: "----",
+  },
+  {
+    id: "4",
+    customer: "Tanimu Ali Salisu",
+    issue: "Wallet",
+    department: "finance",
+    status: CustomerStatus.Attending,
+    location: "Wudil, Kano",
+    agent: "Zahra",
+  },
+  {
+    id: "5",
+    customer: "Tanimu Ali Salisu",
+    issue: "Wallet",
+    department: "finance",
+    status: CustomerStatus.Attending,
+    location: "Wudil, Kano",
+    agent: "Christy",
+  },
+  {
+    id: "6",
+    customer: "Tanimu Ali Salisu",
+    issue: "Wallet",
+    department: "finance",
+    status: CustomerStatus.Attending,
+    location: "Wudil, Kano",
+    agent: "Christy",
+  },
+];

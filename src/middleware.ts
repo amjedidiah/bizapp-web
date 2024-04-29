@@ -39,4 +39,10 @@ export function middleware(request: NextRequest) {
     url.pathname = "/supervisor/settings/security/email-preference";
     return NextResponse.redirect(url);
   }
+
+  if (pathname === "/supervisor/cases") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/supervisor/cases/pending";
+    return NextResponse.redirect(url);
+  }
 }
