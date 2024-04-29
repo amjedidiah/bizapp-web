@@ -13,6 +13,7 @@ import useModal from "@/hooks/use-modal";
 type Props = {
   onCloseSelf: MouseEventHandler<HTMLDialogElement>;
   onClose: () => void;
+  isAgent?: boolean;
 } & HTMLAttributes<HTMLDialogElement>;
 
 const agents = [
@@ -37,12 +38,13 @@ const agents = [
 ];
 
 export default forwardRef<HTMLDialogElement, Props>(
-  function CollaborateAgentModal({ onCloseSelf, onClose }, ref) {
+  function CollaborateAgentModal({ onCloseSelf, onClose, isAgent }, ref) {
     const { modalRef, openModal, closeSelf, closeModal } = useModal();
     const handleCollaborate = useCallback(() => {
       onClose();
-      openModal();
-    }, [onClose, openModal]);
+
+      if (isAgent) openModal();
+    }, [isAgent, onClose, openModal]);
 
     return (
       <Fragment>

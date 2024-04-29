@@ -10,7 +10,7 @@ function DashboardHeaderTitle() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const goToCustomers = useCallback(() => {
+  const goBack = useCallback(() => {
     const array = pathname.split("/");
     array.pop();
 
@@ -20,7 +20,7 @@ function DashboardHeaderTitle() {
   return (
     <h1 className="text-main-blue text-3xl max-mobile:text-2xl lg:text-4xl lg:leading-[44px] -tracking-[0.72px] max-md:order-2 flex items-center gap-[2px]">
       <ShouldRender condition={hasBackArrow}>
-        <span onClick={goToCustomers} className="cursor-pointer">
+        <span onClick={goBack} className="cursor-pointer">
           <BABackArrow />
         </span>
       </ShouldRender>

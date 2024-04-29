@@ -75,7 +75,7 @@ const config: Config = {
           300: "#666668",
           400: "#1A1A1A",
         },
-        blue: { DEFAULT: "#0064E5", 100: "#2A224F" },
+        blue: { DEFAULT: "#0064E5", 100: "#2A224F", 200: "#133F96" },
         primary: {
           DEFAULT: "#3a3541",
           100: "#1B1A57",

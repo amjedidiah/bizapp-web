@@ -8,13 +8,15 @@ import {
 } from "react";
 import CollaborateAgentModal from "@/components/shared/collaborate-agent-modal";
 import useModal from "@/hooks/use-modal";
+import { Role } from "@/lib/constants";
 
 type Props = {
   onCloseSelf: MouseEventHandler<HTMLDialogElement>;
+  role?: Role;
 } & HTMLAttributes<HTMLDialogElement>;
 
 export default forwardRef<HTMLDialogElement, Props>(function InMailMessageModal(
-  { onCloseSelf },
+  { onCloseSelf, role = Role.Agent },
   ref
 ) {
   const { modalRef, openModal, closeSelf, closeModal } = useModal();
@@ -24,6 +26,8 @@ export default forwardRef<HTMLDialogElement, Props>(function InMailMessageModal(
     },
     []
   );
+  const isAgent = role === Role.Agent;
+  const title = isAgent ? "Supervisor" : "Agent 1";
 
   return (
     <dialog
@@ -42,7 +46,7 @@ export default forwardRef<HTMLDialogElement, Props>(function InMailMessageModal(
           className="flex items-center justify-between rounded md:rounded-md lg:rounded-lg border border-gray-400 py-[6px] px-[14px] lg:px-7 cursor-pointer"
           onClick={openModal}
         >
-          <div className="text-black lg:p-[10px]">Supervisor</div>
+          <div className="text-black lg:p-[10px]">{title}</div>
           <button
             type="button"
             className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-black flex items-center justify-center"
@@ -68,6 +72,7 @@ export default forwardRef<HTMLDialogElement, Props>(function InMailMessageModal(
         ref={modalRef}
         onClose={closeModal}
         onCloseSelf={closeSelf}
+        isAgent={isAgent}
       />
     </dialog>
   );

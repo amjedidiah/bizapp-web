@@ -96,7 +96,7 @@ export default function PendingRequests({
           </p>
           <div className="flex max-sm:flex-col gap-4 sm:justify-between sm:items-center">
             <Link
-              className="w-fit py-[10px] px-[18px] rounded-lg shadow-template-company border border-black bg-yellow-200 bg-opacity-60 text-main-blue font-semibold"
+              className="h-fit w-fit py-[10px] px-[18px] rounded-lg shadow-template-company border border-black bg-yellow-200 bg-opacity-60 text-main-blue font-semibold"
               href={SupervisorLinksCases.Pending}
             >
               View all

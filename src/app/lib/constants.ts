@@ -8,6 +8,12 @@ export enum CustomerStatus {
   Pending = "pending",
 }
 
+export enum AgentStatus {
+  Active = "active",
+  Away = "away",
+  Offline = "offline",
+}
+
 export enum Links {
   Dashboard = "Dashboard",
   Pending = "Pending",

@@ -21,6 +21,16 @@ const getTitle = (pathname: string, params: Params, rootPath: string) => {
   return Object.values(links).find((item) => item.pathname === rootPath)?.title;
 };
 
+const getHasBackArrow = (params: Params, pathname: string) => {
+  const validPaths = [
+    AgentLinks.Customers.pathname,
+    SupervisorLinks.Agents.pathname,
+    SupervisorLinks.Customers.pathname,
+  ];
+
+  return params?.id && validPaths.some((item) => pathname.includes(item));
+};
+
 export default function useHeaderTitle() {
   const pathname = usePathname();
   const params = useParams();
@@ -32,9 +42,8 @@ export default function useHeaderTitle() {
   );
 
   const hasBackArrow = useMemo(
-    () =>
-      Boolean(pathname.includes(AgentLinks.Customers.pathname) && params?.id),
-    [params?.id, pathname]
+    () => getHasBackArrow(params, pathname),
+    [params, pathname]
   );
 
   return { title, hasBackArrow };
