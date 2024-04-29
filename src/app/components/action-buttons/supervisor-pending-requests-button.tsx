@@ -12,7 +12,8 @@ function SupervisorPendingRequestsButton({
 }: Record<string, string>) {
   const router = useRouter();
   const handleClick = useCallback(
-    () => router.push(`${SupervisorLinksChat.Customers}/${id}`),
+    () =>
+      router.push(`/supervisor/messages${SupervisorLinksChat.Customers}/${id}`),
     [router, id]
   );
   const canView = status.toLowerCase() === CustomerStatus.Attending;

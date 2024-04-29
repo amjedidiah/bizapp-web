@@ -19,10 +19,10 @@ const getDummyMessages = (count: number) =>
 
 export const getChats = (chatType: string) => {
   const chats = {
-    [ChatLinks.Customers.toLowerCase()]: getDummyMessages(3),
+    [ChatLinks.Customers.toLowerCase()]: getDummyMessages(7),
     [ChatLinks.Collaborations.toLowerCase()]: getDummyMessages(5),
     [ChatLinks.Escalations.toLowerCase()]: getDummyMessages(2),
   };
 
-  return chats[chatType as ChatLinks];
+  return chats[chatType as ChatLinks] || getDummyMessages(5);
 };

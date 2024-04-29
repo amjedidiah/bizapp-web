@@ -36,7 +36,10 @@ export default function PendingCollaborations() {
     <div className="flex flex-col gap-4 lg:gap-[26px]">
       <div className="flex max-sm:flex-col sm:items-center justify-between gap-1">
         <DashboardTitle>Pending Collaborations</DashboardTitle>
-        <Link href={AgentLinksChat.Collaborations} className="w-fit">
+        <Link
+          href={`/agent/chat${AgentLinksChat.Collaborations}`}
+          className="w-fit"
+        >
           <Button variant="yellow-outline">View all</Button>
         </Link>
       </div>
@@ -50,7 +53,7 @@ export default function PendingCollaborations() {
               <p className="bg-opacity-50 text-sm capitalize">agent {agent}</p>
               <p className="leading-5">{issue} issues</p>
             </div>
-            <Link href={`${AgentLinksChat.Collaborations}/${id}`}>
+            <Link href={`/agent/chat${AgentLinksChat.Collaborations}/${id}`}>
               <Button variant="yellow" underline>
                 View
               </Button>

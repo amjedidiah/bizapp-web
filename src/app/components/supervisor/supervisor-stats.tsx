@@ -26,7 +26,7 @@ const stats = [
     type: Role.Customer,
     count: 235,
     title: "Pending / Attending Customers",
-    pathname: SupervisorLinksChat.Customers,
+    pathname: `/supervisor/messages${SupervisorLinksChat.Customers}`,
   },
   {
     id: "4",

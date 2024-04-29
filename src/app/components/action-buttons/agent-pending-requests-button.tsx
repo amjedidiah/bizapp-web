@@ -8,7 +8,7 @@ import { memo, useCallback } from "react";
 function AgentPendingRequestsButton({ id, status }: Record<string, string>) {
   const router = useRouter();
   const handleClick = useCallback(
-    () => router.push(`${AgentLinksChat.Customers}/${id}`),
+    () => router.push(`/agent/chat${AgentLinksChat.Customers}/${id}`),
     [router, id]
   );
   const disabled = status.toLowerCase() === CustomerStatus.Attending;

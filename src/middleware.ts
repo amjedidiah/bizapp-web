@@ -22,6 +22,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  if (pathname === "/supervisor/messages") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/supervisor/messages/customers";
+    return NextResponse.redirect(url);
+  }
+
   if (pathname === "/supervisor/settings") {
     const url = request.nextUrl.clone();
     url.pathname = "/supervisor/settings/account";

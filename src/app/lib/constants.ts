@@ -90,7 +90,7 @@ export enum ChatLinks {
   Collaborations = "Collaborations",
   Customers = "Customers",
   Escalations = "Escalations",
-  InMail = "in-Mail",
+  InMail = "in Mail",
   EscalatedCases = "Escalated cases",
 }
 
@@ -162,9 +162,9 @@ export const SupervisorLinks = {
 };
 
 export const SupervisorLinksChat = {
-  [ChatLinks.Customers]: "/supervisor/messages/customers",
-  [ChatLinks.InMail]: "/supervisor/messages/in-mail",
-  [ChatLinks.Escalations]: "/supervisor/messages/escalated-cases",
+  [ChatLinks.Customers]: "/customers",
+  [ChatLinks.InMail]: "/in-mail",
+  [ChatLinks.EscalatedCases]: "/escalated-cases",
 };
 
 enum CasesLinks {

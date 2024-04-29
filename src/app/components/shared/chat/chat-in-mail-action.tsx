@@ -3,8 +3,9 @@ import useModal from "@/hooks/use-modal";
 import { BAMessage } from "@/lib/icons";
 import InMailMessageModal from "@/components/shared/in-mail-modal/in-mail-message-modal";
 import { memo } from "react";
+import { Role } from "@/lib/constants";
 
-function ChatInMailAction() {
+function ChatInMailAction({ role = Role.Agent }) {
   const { modalRef, openModal, closeSelf } = useModal();
 
   return (
@@ -20,7 +21,7 @@ function ChatInMailAction() {
           in-Mail Messages
         </span>
       </button>
-      <InMailMessageModal ref={modalRef} onCloseSelf={closeSelf} />
+      <InMailMessageModal ref={modalRef} onCloseSelf={closeSelf} role={role} />
     </>
   );
 }
