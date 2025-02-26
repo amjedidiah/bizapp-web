@@ -1,56 +1,114 @@
-# bizapp website
+# BizApp Customer Support Dashboard
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![Next.js](https://img.shields.io/badge/Next.js-14.1.3-000000?logo=next.js)](https://nextjs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18.19.1-green)](https://nodejs.org/)
 
-A LiveChat Customer Support System for Bizapp.
-The live demo for the Agent Dashboard can be found at <https://bizapp-five.vercel.app/agent>
+A modern customer support dashboard for managing live chat, customer interactions, and support team collaboration. Built with Next.js App Router and TypeScript.
 
-## Table of Content
+![Supervisor Dashboard Preview](https://i.ibb.co/jvJtkjV2/screenshot.png)
+![Agent Dashboard Preview](https://i.ibb.co/svPgs4mX/screenshot.png)
 
-- [Project Info](#project-info)
-- [Quick Start](#quick-start)
-- [License](#license)
+## Tech Stack
 
-## Project Info
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + Custom Design System
+- **State Management**: React Context + SWR
+- **Icons**: React Icons
+- **Build Tools**: Yarn + Husky Git Hooks
 
-### Why this project?
+## Features
 
-Part of the interview process for a FrontEnd Engineer role
+### Customer Support Core
 
-### App Architecture
+- Real-time chat interface
+- Customer profile management
+- Complaint tracking system
+- Conversation templates
+- Internal agent messaging (InMail)
 
-This application is built using Next.js 14 app router.
-Application’s code is structured and organized in a logical way, and components are modular and reusable.
+### Team Management
 
-Data driven development was implemented for better component splitting an development.
+- Role-based access control (Agent/Supervisor)
+- Online status management
+- Team performance metrics
+- Shift scheduling integration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load the Google Fonts used.
-It also uses Tailwind CSS for styling.
+### Dashboard Features
 
-### Room for improvement
+- Responsive grid layout
+- Custom data tables with pagination
+- Interactive data visualizations
+- Configurable notification system
+- Multi-device support
 
-- Improved `Table` component
-- Sticky Customer card on desktop
-- OG Images
-- Monorepo for the dashboard and mobile app
+## Getting Started
 
-> Node version used: 18.19.1 (npm v10.2.4)
+### Prerequisites
 
-## Quick Start
-
-> Please make sure you're using Node v.18.19.1 on this project to avoid any issues
+- Node.js v18.19.1
+- npm v10.2.4 or Yarn 1.22+
 
 ### Installation
 
 ```bash
-cd bizapp-interview-ap-24
-yarn
+git clone https://github.com/amjedidiah/bizapp
+cd bizapp
+
+# Using Yarn (recommended)
+yarn install
 yarn dev
+
+# Using npm
+npm install
+npm run dev
 ```
 
-Open <http://localhost:3000/agent> with your browser to see the result.
+### Environment Setup
+
+1. Start development server:
+
+   ```bash
+   yarn dev
+   ```
+
+2. Open <http://localhost:3000> with your browser to see the result.
+
+## Project Structure
+
+```bash
+bizapp/
+├── src/
+│   ├── app/                 # Next.js app router
+│   ├── components/          # Reusable components
+│   ├── lib/                 # Utilities & constants
+│   ├── hooks/               # Custom React hooks
+│   └── context/             # React context providers
+├── public/                  # Static assets
+├── tailwind.config.ts       # Design system config
+└── postcss.config.js        # CSS processing
+```
 
 ## License
 
-This piece of software is Copyright (c) 2024 BizApp.
-It may be redistributed under the terms specified in the [LICENSE file](LICENSE)
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
+## Future Roadmap
+
+- **Component Improvements**
+  - Enhanced Table component with sorting/filtering
+  - Sticky customer profiles (desktop optimized)
+  - Advanced chat message formatting
+
+- **Architecture**
+  - Monorepo structure for cross-platform support
+  - OG Image generation for social sharing
+  - Automated performance monitoring
+
+- **Collaboration**
+  - Real-time agent collaboration features
+  - Supervisor escalation workflows
+  - Team knowledge base integration
+
+> **Note**: Requires Node v18.19.1 for development
